@@ -1,0 +1,424 @@
+:: StoryTitle
+transformers porn
+
+
+:: StoryData
+{
+  "ifid": "A12C3437-9B4F-4D48-B770-03A589ACAF47",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Index - Character Creation",
+  "tag-colors": {
+    "startup": "red"
+  },
+  "zoom": 1
+}
+
+
+:: Autobot Intro {"position":"175,175","size":"100,100"}
+A shrill beeping fills your habsuite, bouncing off the barren metal walls and into your unprepared audials. You roll over with a groan, taking off your portable HUD and throwing it to the floor. That doesn't quiet it in the least, but it muffles with the distance. Your optics are slow to power on, $opticColor lights dim and the feedback fuzzy. Finally your processor onlines enough to make out the blurry features of your room.
+
+Monitor duty, again.
+
+You kick one pede, then the other, over the edge of your berth. After yesterday's battle, your frame feels like you got put back together with spare parts. Your joints creak as you shuffle about your habsuite, preparing for the day by wiping down your face with a moist cloth and looking through the Autobot network's latest updates.
+
+[[Stumble out the door]]
+
+
+:: Character Sheet {"position":"550,25","size":"100,100"}
+Here is Character Sheet! It's a sheet for a character.
+
+Your Designation is: $mc.name
+Your age is: ????
+You're an <<set $compliment to either("alluring", "attractive", "optic-catching")>> $compliment $armorColor $altForm.
+Your frame is $composition.
+
+I will fill this out later with more writing rn I'm excited I got it to work!
+
+
+:: Character Stats {"position":"800,25","size":"100,100"}
+Virginity: $mcVirginity
+Corruption Level: $mcCorruption
+Strength: $mcStrength
+Intelligence: $mcIntelligence
+
+
+:: Disclaimer {"position":"50,175","size":"100,100"}
+This is an 18+ game. No minors allowed!
+
+Your character has both a valve and spike, regardless of gender chosen at the start. This is something you cannot opt out of at this time. If this is something that will cause you distress, you should click out now.
+
+This is a fangame, not canon or related to Hasbro, and has disturbing/graphic sexual content.
+
+<<button [[I understand ->Autobot Intro]]>> <</button>> 
+
+
+:: Index - Character Creation {"position":"50,25","size":"100,100"}
+<center><h1>Personal Construction</h1></center>
+             
+__Designation:__ <<textbox "$mc.name" "" autofocus>>
+ <<if !$mc.name>>
+            <<set $mc.name to "Iota">>
+ <</if>> 
+            
+__Gender:__
+<label><<radiobutton "$mc.gender" "femme" checked>> Femme (Woman)</label>
+<label><<radiobutton "$mc.gender" "mech">> Mech (Man)</label>
+<label><<radiobutton "$mc.gender" "bot">> Nonbinary (Bot)</label>
+
+<<set _optic to ["blue", "red", "gold", "purple"]>>
+<<set $opticColor = _optic>>
+__Optic Color:__
+<label><<radiobutton "$opticColor" "blue" checked>> Blue </label>
+<label><<radiobutton "$opticColor" "red">> Red </label>
+<label><<radiobutton "$opticColor" "gold">> Gold </label>
+<label><<radiobutton "$opticColor" "purple">> Purple </label>
+           
+<<set _height = ["giant", "large", "average", "small", "mini"]>>
+<<set $height = _height>>
+__Frame Type:__
+
+<<listbox "$height">><<optionsfrom _height>><</listbox>>
+
+<<set _composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<<set $composition = _composition>>
+__Frame Composition:__
+<<listbox "$composition">><<optionsfrom _composition>><</listbox>>
+
+<<set _altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]>>
+<<set $altForm = _altform>>
+__Alt-form:__
+<<listbox "$altForm">><<optionsfrom _altForm>><</listbox>>
+
+<<set _armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
+<<set $metalColor = _armorColor>>
+__Armor Color:__
+<<listbox "$armorColor">><<optionsfrom _armorColor>><</listbox>>
+
+
+<center><<button [[Ready ->Disclaimer]] >><</button>></center>
+
+
+
+:: Start monitor duty {"position":"425,175","size":"100,100"}
+You look down at your $armorColor servos. hell yea it works
+
+$opticColor
+$mc.name
+$armorColor
+$altForm
+$composition
+$mc.gender
+$height
+
+YES IT WORKS
+
+$prowl
+$optimus
+$prowl.approval
+$optimus.approval
+<<set $prowl.approval += 1>>
+$prowl.approval <i just gave you a prowl point spend it well
+
+
+:: StoryInit [startup] {"position":"175,25","size":"100,100"}
+***************************
+	APPROVAL SYSTEM
+***************************
+
+*/* Create Prowl */*
+
+<<set $prowl = ["Prowl"]>>
+
+*/* Create Prowl Approval System */*
+
+<<set $prowl.approval = 0>>
+
+*/* Create Optimus */*
+
+<<set $optimus = ["Optimus"]>>
+
+*/* Create Optimus Approval System */*
+
+<<set $optimus.approval = 100>>
+
+
+
+
+
+
+
+**************************
+	CHARACTER STATS
+**************************
+<<set $mcCorruption = 0>>
+<<set $mcVirginity = true>>
+ <<if $mcVirginity>>
+ 		<<set $mcVirginity to "You are factory sealed.">>
+ <<else>>
+ 		<<set $mcVirginity to "Your seal is broken.">>
+ <</if>>
+<<set $mcSubmission = 0>>
+<<set $mcStrength = 0>>
+<<set $mcIntelligence = 0>>
+<<set $chastitySeal = true>>
+
+
+<<set 
+    $mc to {},
+    $proset to {},
+    $face to {},
+    $skin to {},
+    $body to {}>>
+
+    /* This last one is only for practicality */
+<<set $pages to {}>>
+
+<<set $armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
+<<set $armorColor = _armorColor>>
+
+<<set $opticColor to ["blue", "red", "gold", "purple"]>>
+<<set $opticColor = _optic>>
+
+<<set $height = ["giant", "large", "average", "small", "mini"]>>
+<<set $height = _height>>
+
+<<set $altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]>>
+<<set $altForm = _altForm>>
+
+<<set $composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<<set $composition = _composition>>
+
+
+
+:: StoryMenu {"position":"425,25","size":"100,100"}
+<<link "Character Sheet">>
+	<<script>>
+	Dialog.setup("Your Character");
+	Dialog.wiki(Story.get("Character Sheet").processText());
+	Dialog.open();
+	<</script>>
+<</link>>
+
+<<link "Character Stats">>
+	<<script>>
+    Dialog.setup("Your Stats");
+    Dialog.wiki(Story.get("Character Stats").processText());
+    Dialog.open();
+    <</script>>
+<</link>>
+
+<<link "The Autobots">>
+	<<script>>
+    Dialog.setup("Relationships on the Ark");
+    Dialog.wiki(Story.get("The Autobots").processText());
+    Dialog.open();
+    <</script>>
+<</link>>
+
+
+:: Stumble out the door {"position":"300,175","size":"100,100"}
+The way to the cafeteria  is a game of dodging racing speedsters and swerving around mechs buried in their datapads. The Ark isn't too terribly crowded with mechs, the crew being scarce compared to the ships back on Cybertron, but it's most popular corridors aren't spacious enough for all the pede traffic.
+
+The cafeteria is similarly crowded, mechs shuffling to the energon dispenser and filling up tables. Some groups are chatting animatedly, some groups are sitting and reading through reports quietly.
+
+You don't spend enough time looking around before beelining for the dispenser. You're not too hungry, your entire frame still aching for more sleep, but you can't afford to pass out midway through your shift. Again.
+
+The line moves quickly enough before you're able to scan your portable HUD, a loud embarrassing beep and the machine greeting you by designation You duck your helm at the mechanical voice. The dispenser displays your ID code and the number of rations you're allowed for the day: three remaining.
+
+Your share of rations for the entire month are probably much fuller than everyone else's. It's not that you *try* to avoid meal times; you're just really bad at ending your shift. The superior officers have gotten onto you about it more than once.
+
+Your cube filled with the standard-grade energon, you quickly make your way out of the cafeteria to start your shift. If your superiors get onto you about taking rations from the eatery, you'll just say you're holding it for a friend.
+
+[[Start monitor duty]]
+
+
+:: The Autobots {"position":"675,25","size":"100,100"}
+This can show the approval system for the characters.
+
+Prowl: $prowl.approval
+ <<if $prowl.approval >=95>>
+ 		Prowl trusts you with the Autobot cause.
+ <<elseif $prowl.approval >=85 && $prowl.approval <=94>>
+		Prowl needs to be near you.
+ <<elseif $prowl.approval >=75 && $prowl.approval <=84>>
+		Prowl wants to be around you.
+ <<elseif $prowl.approval >=65 && $prowl.approval <=74>>
+		 Prowl sees you as a confidante.
+ <<elseif $prowl.approval >=50 && $prowl.approval <=64>>
+		Prowl thinks you are of a similar mind.
+ <<elseif $prowl.approval >=35 && $prowl.approval <=49>>
+		Prowl thinks you are better than most.
+ <<elseif $prowl.approval >=25 && $prowl.approval <=34>>
+		Prowl thinks you are a fine, reasonable soldier.
+ <<elseif $prowl.approval >=15 && $prowl.approval <=24>>
+		Prowl sees you as part of the rabble.
+ <<elseif $prowl.approval >=0 && $prowl.approval <=14>>
+		Prowl can't tell you apart from the cannon fodder.
+ <</if>>
+
+Optimus: $optimus.approval
+
+:)
+
+
+:: Widgets {"position":"300,25","size":"100,100"}
+
+/*************************** 
+    ARMOR COLORS WIDGETS 
+***************************/
+<<widget "ArmorColorCycle">>
+    <<cycle "$armorColor" autoselect>>
+        <<option "cyan">>
+        <<option "alabaster">>
+        <<option "crimson">>
+        <<option "lime">>
+        <<option "orange">>
+        <<option "royal purple">>
+        <<option "ochre">>
+        <<option "hot pink">>
+        <<option "teal">>
+        <<option "olive">>
+        <<option "milk brown">>
+        <<option "midnight blue">>
+        <<option "scarlet">>
+        <<option "violet">>
+        <<option "black">>
+        <<option "tan">>
+        <<option "baby pink">>
+        <<option "salmon">>
+        <<option "emerald">>
+        <<option "cream yellow">>
+        <<option "periwinkle">>
+        <<option "ivory">>
+        <<option "steel">>
+        <<option "sky blue">>
+        <<option "sea green">>
+        <<option "navy">>
+        <<option "gold">>
+        <<option "silver">>
+        <<option "rose gold">>
+
+    <</cycle>>
+<</widget>>
+
+
+/*************************** 
+    FRAME WIDGET
+***************************/
+<<widget "Frame">>
+    <<set 
+        $height = ["giant", "large", "average", "small", "mini"],
+    >>
+    <<set
+    	$composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]
+    >>
+     <<set
+     	$altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]
+    >>
+<</widget>>
+
+
+
+/********************************
+    CHANGE POPUP WIDGETS 
+********************************/
+
+<<widget "PopupDesignationChange">>
+    <<run Dialog.create("Change Your Designation").wikiPassage("Popup-Designation").open();>>
+<</widget>>
+
+
+<<widget "PopupGenderChange">>
+    <<run Dialog.create("Change Your Gender").wikiPassage("Popup-Gender").open();>>
+<</widget>>
+<<widget "IfGenderIsCustom">>
+
+    <<if $mc.gender "woman">>
+        <<set _gender = "woman">>
+    <<elseif $mc.gender "man">>
+        <<set _gender = "man">>
+    <<else $mc.gender "nonbinary">>
+        <<set _gender = "nonbinary">>
+    <</if>>
+
+<</widget>>
+
+
+
+
+<<widget "PopupOpticsChange">>
+    <<run Dialog.create("Change Your Optics").wikiPassage("Popup-Optic").open();>>
+<</widget>>
+
+
+<<widget "PopupArmorColorChange">>
+    <<run Dialog.create("Change Your Armor Color").wikiPassage("Popup-Frame").open();>>
+<</widget>>
+<<widget "PopupArmorChecker">>
+    <<set _armorColor to $armorColor>>
+<</widget>>
+
+
+<<widget "PopupFrameChange">>
+    <<run Dialog.create("Change Your Frame").wikiPassage("Popup-Frame").open();>>
+<</widget>>
+
+<<widget "PopupFrame">>
+    <<set 
+        $height = ["giant", "large", "average", "small",  "mini"],
+    >>
+<</widget>>
+
+
+<<widget "PopupCompositionChange">>
+    <<run Dialog.create("Change Your Composition").wikiPassage("Popup-Composition").open();>>
+<</widget>>
+
+<<widget "PopupComposition">>
+    <<set 
+        $composition =  ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<</widget>>
+
+
+
+
+<<widget "PopupCharacterSheet">>
+
+
+
+:: StoryStylesheet [stylesheet]
+@font-face {
+    font-family: dogica;
+    src: url("fonts/dogica.ttf") format(truetype);
+    font-style: normal;
+    font-weight: normal;
+}
+
+body    {
+    background-color: #000000
+    font-family: dogica;
+}
+
+.hover {
+    position: relative;
+    display: inline-block;
+}
+
+.hover .hoverblock {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: white;
+    border-color: white;
+    border-style: double;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.hover:hover .hoverblock {
+    visibility: visible;
+}
