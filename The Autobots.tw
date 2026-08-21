@@ -1,0 +1,168 @@
+:: The Autobots {"position":"400,25","size":"100,100"}
+<<if $metOptimus is false>><div class = "hide"></div>
+<<elseif $metOptimus is true>>
+<div class="flex-container">
+  <div class="flex-box">Optimus
+  		<img src="https://i.pinimg.com/736x/62/cd/cc/62cdcc1af799a10aa29cd8408ba2d206.jpg" height="100" width="100" align="left">
+			Relationship:  $optimus.approval
+			<<nobr>>
+            	 <<if $optimus.approval >=95>>
+                 			Optimus considers you one spark in separate frames.
+ 				<<elseif $optimus.approval >=85 && $prowl.approval <=94>>
+							Optimus bears his spark to you.
+ 				<<elseif $optimus.approval >=75 && $prowl.approval <=84>>
+							Optimus longs to be near you.
+				<<elseif $optimus.approval >=65 && $prowl.approval <=74>>
+							Optimus wants to keep you close.
+ 				<<elseif $optimus.approval >=50 && $prowl.approval <=64>>
+							Optimus seeks your input.
+ 				<<elseif $optimus.approval >=35 && $prowl.approval <=49>>
+							Optimus appreciates your friendship.
+ 				<<elseif $optimus.approval >=25 && $prowl.approval <=34>>
+							Optimus is glad you are on his side.
+ 				<<elseif $optimus.approval >=15 && $prowl.approval <=24>>
+							Optimus sees the best in you.
+ 				<<elseif $optimus.approval >=0 && $prowl.approval <=14>>
+							Optimus considers you his responsibility.
+				<</if>>
+
+				<<set $optimus.approval to Math.clamp($optimus.approval + 5, 0, 100)>>
+
+				<<set $optimus.approval to Math.clamp($optimus.approval - 5, 0, 100)>>
+            
+            <</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $metProwl is false>><div class = "hide"></div>
+<<elseif $metProwl is true>>
+<div class="flex-container">
+  <div class="flex-box">Prowl
+		<img src= "https://i.pinimg.com/736x/b1/66/da/b166da176469f301ff93412a94f458e5.jpg" width="100" height="100" align="left">
+			Relationship: $prowl.approval
+            <<nobr>>
+ 				<<if $prowl.approval >=95>>
+ 						Prowl trusts you with the Autobot cause.
+ 				<<elseif $prowl.approval >=85 && $prowl.approval <=94>>
+						Prowl needs to be near you.
+ 				<<elseif $prowl.approval >=75 && $prowl.approval <=84>>
+						Prowl wants to be around you.
+ 				<<elseif $prowl.approval >=65 && $prowl.approval <=74>>
+		 				Prowl sees you as a confidante.
+ 				<<elseif $prowl.approval >=50 && $prowl.approval <=64>>
+						Prowl thinks you are of a similar mind.
+ 				<<elseif $prowl.approval >=35 && $prowl.approval <=49>>
+						Prowl thinks you are better than most.
+ 				<<elseif $prowl.approval >=25 && $prowl.approval <=34>>
+						Prowl thinks you are a fine, reasonable soldier.
+ 				<<elseif $prowl.approval >=15 && $prowl.approval <=24>>
+						Prowl sees you as part of the rabble.
+ 				<<elseif $prowl.approval >=0 && $prowl.approval <=14>>
+						Prowl can't tell you apart from the cannon fodder.
+ 				<</if>>
+                
+                <<set $prowl.approval to Math.clamp($prowl.approval + 5, 0, 100)>>
+
+				<<set $prowl.approval to Math.clamp($prowl.approval - 5, 0, 100)>>
+
+                <</nobr>>
+        </div>
+</div>
+<</if>>
+
+<<if $metJazz is false>><div class = "hide"></div>
+<<elseif $metJazz is true>>
+<div class="flex-container">
+  <div class="flex-box">Jazz
+  		<img src= https://i.pinimg.com/736x/81/11/40/811140057cd98d2f26874fe7f0c5b349.jpg width="100" height="100" align="left">
+			Relationship: $jazz.approval
+			<<nobr>>
+            	<<if $jazz.approval >=95>>
+                 		Jazz is as open as he can be with you.
+				<<elseif $jazz.approval >=85 && $jazz.approval <=94>>
+						Jazz can see a future with you.
+ 				<<elseif $jazz.approval >=75 && $jazz.approval <=84>>
+						Jazz keeps your picture in his subspace.
+				<<elseif $jazz.approval >=65 && $jazz.approval <=74>>
+						Jazz keeps your secrets.
+ 				<<elseif $jazz.approval >=50 && $jazz.approval <=64>>
+						Jazz thinks of you often.
+ 				<<elseif $jazz.approval >=35 && $jazz.approval <=49>>
+						Jazz enjoys spending his free time with you.
+ 				<<elseif $jazz.approval >=25 && $jazz.approval <=34>>
+						Jazz thinks you would make an exemplary Autobot.
+ 				<<elseif $jazz.approval >=15 && $jazz.approval <=24>>
+						Jazz tries to help you as much as he can.
+ 				<<elseif $jazz.approval >=0 && $jazz.approval <=14>>
+						Jazz is keeping an optic on you.
+				<</if>>
+                
+                <<set $jazz.approval to Math.clamp($jazz.approval + 5, 0, 100)>>
+
+				<<set $jazz.approval to Math.clamp($jazz.approval - 5, 0, 100)>>
+                
+            <</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $metRatchet is false>><div class = "hide"></div>
+<<elseif $metRatchet is true>>
+<div class="flex-container">
+  <div class="flex-box">Ratchet
+  		<img src=https://i.pinimg.com/736x/27/34/7d/27347d889be91954be92192ad7440a31.jpg width="100" height="100" align="left">
+			Relationship: $ratchet.approval
+			<<nobr>>
+        		<<if $ratchet.approval >=95>> 
+ 					Ratchet wants to forge 'tomorrow' with you.
+ 				<<elseif $ratchet.approval >=85 && $ratchet.approval <=94>>
+					Ratchet is determined to keep you alive.
+ 				<<elseif $ratchet.approval >=75 && $ratchet.approval <=84>>
+					Ratchet sees the best of the Autobots in you.
+ 				<<elseif $ratchet.approval >=65 && $ratchet.approval <=74>>
+					Ratchet is soft on you.
+ 				<<elseif $ratchet.approval >=50 && $ratchet.approval <=64>>
+					Ratchet lets you spend your free time in the medbay.
+ 				<<elseif $ratchet.approval >=35 && $ratchet.approval <=49>>
+					Ratchet wants to teach you the basics of first aid.
+ 				<<elseif $ratchet.approval >=25 && $ratchet.approval <=34>>
+					Ratchet doesn't mind your company.
+ 				<<elseif $ratchet.approval >=15 && $ratchet.approval <=24>>
+					Ratchet fusses over you.
+ 				<<elseif $ratchet.approval >=0 && $ratchet.approval <=14>>
+					Ratchet hopes you stay out of trouble.
+				<</if>>
+
+			<<set $ratchet.approval to Math.clamp($ratchet.approval + 5, 0, 100)>>
+
+			<<set $ratchet.approval to Math.clamp($ratchet.approval - 5, 0, 100)>>
+            
+           	<</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $metIronhide is false>><div class = "hide"></div>
+<<elseif $metIronhide is true>>
+<div class="flex-container">
+  <div class="flex-box">Ironhide
+  		<img src=https://i.pinimg.com/736x/2a/e3/5b/2ae35b3af99edf071f2bd734576abd5e.jpg height="100" width="100" align="left">
+			Relationship: $ironhide.approval
+        	<<nobr>>
+			<</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $mettBumblebee is false>><div class = "hide"></div>
+<<elseif $metBumblebee is true>>
+<div class="flex-container">
+  <div class="flex-box">Bumblebee
+  		<img src=https://i.pinimg.com/736x/ae/5b/5d/ae5b5d1cc3d2bf6ecd2bb2c72221bf37.jpg height="100" width="100" align="left">
+			Relationship: $bumblebee.approval
+            <<nobr>>
+			<</nobr>>
+   </div>     
+</div>
+<</if>>

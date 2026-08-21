@@ -1,0 +1,9 @@
+:: Character Stats {"position":"525,25","size":"100,100"}
+HP: $mcHealth
+Strength: $mcStrength
+Intelligence: $mcIntelligence
+Aim: $mcAim
+<kinktext>Virginity: $mcVirginity
+Corruption Level: $mcCorruption
+Dominance: $mcDominant
+Submissiveness: $mcSubmissive</kinktext>

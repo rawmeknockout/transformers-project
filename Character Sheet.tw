@@ -1,0 +1,57 @@
+:: Character Sheet {"position":"275,25","size":"100,100"}
+Here is Character Sheet! It's a sheet for a character.
+
+Your Designation is: $mc.name
+Your age is: ????
+You're an <<set $compliment to either("alluring", "attractive", "optic-catching")>> $compliment $armorColor $altForm.
+Your frame is $composition.
+
+I will fill this out later with more writing rn I'm excited I got it to work!
+
+<<link "<<scicon cog>>Character Editor">>
+	<<script>>
+    Dialog.setup("Character Editor");
+    Dialog.wiki(Story.get("Character Editor").processText());
+    Dialog.open();
+    <</script>>
+<</link>>
+
+:: Character Editor {"position":"900,25","size":"100,100"}
+__Designation:__ <<textbox "$mc.name" "" autofocus>>
+ <<if !$mc.name>>
+            <<set $mc.name to "Iota">>
+ <</if>> 
+ 
+__Gender:__
+<label><<radiobutton "$mc.gender" "femme" checked>> Femme (Woman)</label>
+<label><<radiobutton "$mc.gender" "mech">> Mech (Man)</label>
+<label><<radiobutton "$mc.gender" "bot">> Nonbinary (Bot)</label>
+
+<<set _optic to ["blue", "red", "gold", "purple"]>>
+<<set $opticColor = _optic>>
+__Optic Color:__
+<label><<radiobutton "$opticColor" "blue" checked>> Blue </label>
+<label><<radiobutton "$opticColor" "red">> Red </label>
+<label><<radiobutton "$opticColor" "gold">> Gold </label>
+<label><<radiobutton "$opticColor" "purple">> Purple </label>
+           
+<<set _height = ["giant", "large", "average", "small", "mini"]>>
+<<set $height = _height>>
+__Frame Type:__
+
+<<listbox "$height">><<optionsfrom _height>><</listbox>>
+
+<<set _composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<<set $composition = _composition>>
+__Frame Composition:__
+<<listbox "$composition">><<optionsfrom _composition>><</listbox>>
+
+<<set _altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]>>
+<<set $altForm = _altform>>
+__Alt-form:__
+<<listbox "$altForm">><<optionsfrom _altForm>><</listbox>>
+
+<<set _armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
+<<set $armorColor = _armorColor>>
+__Armor Color:__
+<<listbox "$armorColor">><<optionsfrom _armorColor>><</listbox>>

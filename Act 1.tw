@@ -1,0 +1,157 @@
+:: Homeworld Destroyed Intro {"position":"75,200","size":"100,100"}
+<<set $sheetDisable = true>><<set $statsDisable = true>> The last moments of your homeworld are hazy; blurry with motion and fear. The day had been so regular, so mundane, that you can't remember the bulk of how you spent the remaining hours in your home. You only remember you were doing something unimportant, a standard part of your daily routine, when a great force shook the foundations of your home; a force powerful enough to cause the great steel columns of the castle to tremble in its wake.
+
+You think perhaps you had been painting or reading. Whatever it was, your memories immediately jump to scrambling out of your seat and running to the window.
+
+You remember the sight most clearly, the great beast that had torn your life apart: hovering far above your world, a giant black ship that overtook the sky itself. Emblazoned on its belly, a glaring purple mask. The very picture of hatred and malice. It was dropping weapons you had never seen before, but they brought fire upon contact with the buildings below.
+
+The door behind you slams open. Your younger sister, head of the castle guard, sweeping in like a storm, her servo around your wrist joint and forcing you into a run immediately.
+
+You babble questions at her: where your sire is, where you're going, what happened to the negotiations. She doesn't pause to answer, dragging you along behind her without break. She turns the corner, coming upon your greying carrier lying in a magenta puddle, but she hardly gives them a glance. You don't even get a moment to kneel and tend to your creator, to try and save them from the wounds that continue to leak energon. Perhaps it was for the best, as the ceiling collapsed upon the hallway you had passed through soon after, but it still causes a lump in your throat tubing.
+
+Your sister drags you passed the throne room to the research wing of the castle: the pride of the kingdom and the hope for your planet's future. Your sire's top scientists had only just made headway on a long-distance shuttle with the goal of finally taking to the stars and finding your ancestors' world. To finally find where your people came from.
+
+She ushers you up the ramp to the very machine, but you jerk back to resist being pushed through the shuttle door.
+
+"Voltmaker, where are we going? What about sire? We can't leave her," Your sister's stony, determined face finally flinches into something softer. Mournful. She continues shoving you through the door and into the hub of the shuttle, letting the door slide closed behind the both of you.
+
+"I know you don't understand right now," She immediately sets upon the computer, jabbing in directions to the shuttle's HUD with an impatience that borders on manic, "But there's something I need you to do. It's the most important thing you can do for our family now."
+
+You shift on your pedes uneasily as another strong explosion rocks the shuttle, the vibrations trembling up your legs.
+
+After she's done, your sister turns to you and takes your arms gently. She works her jaw as she seeks for words before reaching into her subspace, pulling out the heart of your homeworld. The single most important relic of your people. Your jaw flaps open at the glowing crystal chunk in her palm. She shoves it into your chest, forcing you to take it.
+
+"I'm not going with you," Your sister straightens up, pulling her shoulders back, "You're going to take the primordial stone and leave. You need to do everything you can to keep it safe. This is non-negotiable."
+
+You try to argue with her but your sister takes you by the shoulders and shoves you back. She keeps shoving you, despite your attempts to escape her duty-worn servos, until your pedes hit something hard and you tumble back. Instead of the hard steel floor, you land in the cushy mesh of a stasis pod. It's opulent, fit for a monarch, but your sister closes the lid over it like a tomb. She places one servo against the reinforced glass, looking down at you with a pain that seizes your spark.
+You've never seen such open grief on Voltmaker, not even when her own carrier died.
+
+She quickly jabs at the interface next to the pod, causing it to stir to life around you. The shuttle still hums with the explosions outside, still trembles faintly through the cushioning of the pod, but you can't focus on anything other than the mech in front of you--tinged blue through the pod glass.
+
+Lubricant leaks from your optics as you plead for her to let you out, to let you stay, even if it means you die in the siege, but you have no hope that she can actually hear your words. She gives you a gentle, agonized smile before moving away and out of sight. You know without seeing her that she's leaving.
+
+The pod quickly fills with stasis fluid as you feel the shuttle shiver with the force it takes to lift off the ground. You press your servos helplessly against the fluid vents, trying to stop its flow. The purple fluid continues to pool around your frame, seeping into your seams and vents, washing your system with a sudden need for recharge. You're gently lulled into forced stasis as you see, from the bare peek of the shuttle glass that you can get, that great beast in the sky bearing down with unrelenting force.
+
+Tearing apart your defenseless home with a viciousness and cruelty you had never seen wielded by another creature.
+
+[[But who were you before this? ->Index - Character Creation]] 
+
+
+:: Index - Character Creation {"position":"200,200","size":"100,100"}
+<center><h1>Personal Construction</h1></center>
+
+__Designation:__ <<textbox "$mc.name" "" autofocus>>
+ <<if !$mc.name>>
+            <<set $mc.name to "Iota">>
+ <</if>> 
+ 
+__Gender:__
+<label><<radiobutton "$mc.gender" "femme" checked>> Femme (Woman)</label>
+<label><<radiobutton "$mc.gender" "mech">> Mech (Man)</label>
+<label><<radiobutton "$mc.gender" "bot">> Nonbinary (Bot)</label>
+
+<<set _optic to ["blue", "red", "gold", "purple"]>>
+<<set $opticColor = _optic>>
+__Optic Color:__
+<label><<radiobutton "$opticColor" "blue" checked>> Blue </label>
+<label><<radiobutton "$opticColor" "red">> Red </label>
+<label><<radiobutton "$opticColor" "gold">> Gold </label>
+<label><<radiobutton "$opticColor" "purple">> Purple </label>
+ 
+<<set _height = ["giant", "large", "average", "small", "mini"]>>
+<<set $height = _height>>
+__Frame Type:__
+
+<<listbox "$height">><<optionsfrom _height>><</listbox>>
+
+<<set _composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<<set $composition = _composition>>
+__Frame Composition:__
+<<listbox "$composition">><<optionsfrom _composition>><</listbox>>
+
+<<set _altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]>>
+<<set $altForm = _altform>>
+__Alt-form:__
+<<listbox "$altForm">><<optionsfrom _altForm>><</listbox>>
+
+<<set _armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
+<<set $armorColor = _armorColor>>
+__Armor Color:__
+<<listbox "$armorColor">><<optionsfrom _armorColor>><</listbox>>
+
+
+<center><<button [[Ready ->Disclaimer]] >><</button>></center>
+
+:: Disclaimer {"position":"325,200","size":"100,100"}
+<<set $sheetDisable = false>><<set $statsDisable = false>> This is an 18+ game. No minors allowed!
+
+Your character has both a valve and spike, regardless of gender chosen at the start. This is something you cannot opt out of at this time. If this is something that will cause you distress, you should click out now.
+
+This is a fangame, not canon or related to Hasbro, and has disturbing/graphic sexual content.
+
+The content will include (but is not limited to):
+noncon
+amputation
+minor character death
+sire/carrier kink
+ooc behavior
+lots of robot sex
+kidnapping
+abuse
+coercion and manipulation
+
+<<button [[I am 18+ and I understand ->Rude Awakening]]>> <</button>> 
+
+:: Rude Awakening {"position":"450,200","size":"100,100"}
+
+The sound of metal clinking is the first, fuzzy sensation that breaks through the void of forced stasis. It's a gentle sound like the chime of a tuning fork during temple service.  Your optics are slow to online, despite your sole focus being drawn to the sound. Eventually the sound disappears just before your optics fully come online, visual feed still fuzzy with static.
+
+You're on your backplates staring straight up at a garish orange-bronze ceiling. You think, at once, that it's quite ugly and not at all like the metal interiors you're used to. It's 'unfinished': bolts bare to the naked optic and metal unpolished, showing a fine collection of dirt across its once shiny surface. Very utilitarian.
+
+"Oh, good. You're awake. You gave us quite a scare when you didn't immediately online," A white mech--a medic, you think--comes into view. Just as utilitarian in form as the ceiling he's under. What startles you to full awareness is just how **boxy** this mech is. His frame is like yours but not like yours. In fact, not like any mech you've ever seen. You startle up onto your forearms, giving the medic a once over as he tries to ease you back into a lying position.
+
+"Who are you talking to, Ratch? Are they awake?" Another mech, in deep green armor, comes up behind this strange medic. Oh, he's just as boxy if not moreso! You scramble back on the metal slab, trying to pull as far away from this strange medic's servos as possible.
+
+You see a series of medical instruments just off to the side. Among them what you think must be a scalple.
+
+[[Grab a weapon]]
+
+[[Scramble off the berth]]
+
+:: Grab a weapon {"position":"575,275","size":"100,100"}
+<<set $mcDominant += 1>> <kinktext>Dominance +1</kinktext>
+
+You see that horrible red face on their armor--twin to the harbinger of death--and you waste no time in grabbing a weapon. You hold the tool between you and the white medic, glaring defiantly between one and then the other.
+
+"Don't touch me!" You carefully move back on the medical slab until you can feel the edge, cautiously lowering one pede to the floor and then the other. The white medic puts up his servos in a placating gesture, his optics never leaving your face even when you make a motion like you will lunge at him. He pointedly ignores the laser scalple in your grasp.
+
+"We're not going to hurt you," You scoff at his words, optics never leaving the two mechs in front of you. You don't know if you have the werewithal to actually use the meager weapon in your servo, but you're definitely not letting these monsters lay one digit on you.
+
+
+
+
+
+[[Keep the newcomer at bay]]
+
+:: Scramble off the berth {"position":"575,150","size":"100,100"}
+<<set $mcSubmissive += 1>> <kinktext>Submissiveness +1</kinktext>
+
+You hastily pull yourself off the medical table, slipping as you get one pede on the floor and tumbling down chassis first. The medic immediately comes around to try to help you, cursing all the while, but you don't hesitate to continue moving. You put as much space--as quickly as you can--between you and your kidnappers, speeding to tbe other end of the room and ducking behind another of the medical slabs.
+
+"Who are you? Where have you taken me?" You eye them warily, tring to keep both of them in your field of view. So preoccupied with getting distance between you and these strangers, you almost miss the red face emblazoned proudly upon their metal. Stark and bright. A close brother to that mark of evil. Dread makes your pauldrons hunch all the way up to your audials. How did you end up in their servos?
+
+"It's okay, just calm down," The green mech speaks through his face covering, tone too gentle and cheery for your liking, "We're not going to hurt you."
+
+You don't believe them in the least. Unfortunately, there's so many doors in this room that you're not sure which one leads **out**.
+
+Before you can come up with a plan, one of them opens to reveal a __large__ blue and red bot.
+	<<if $height=["giant"]>> But not as large as you.
+	<<elseif $height=["large]>> About the same size as you. Maybe you can still take him.
+	<<elseif $height=["average","small","mini"]>> Larger than you. You may not be able to threaten your way out of this.
+	<</if>>
+
+[[Keep the newcomer at bay]]
+
+:: Keep the newcomer at bay {"position":"700,200","size":"100,100"}
+<<set $relationshipDisable = false>>
+
