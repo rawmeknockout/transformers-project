@@ -1,0 +1,30 @@
+:: Story Javascript
+
+State.setVar("$time", 450);
+Setting.addToggle("timeFormat", {
+  label: "Use 24 hour time?",
+  default: false
+});
+Macro.add("DisplayTime", {
+  skipArgs: false,
+  handler: function () {
+    let hours = Math.floor(State.getVar("$time")/60);
+    let minutes = State.getVar("$time") % 60;
+    let ampm = "am";
+
+    if (!settings.timeFormat && hours > 12) {
+      hours = hours - 12;
+      ampm = "pm";
+    }
+
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    if (hours < 10 && settings.timeFormat) {
+      hours = "0" + hours;
+    }
+
+    $(settings.timeFormat ? `<span>${hours}${minutes}</span>` : `<span>${hours}:${minutes}${ampm}</span>`).appendTo(this.output)
+  }
+});
