@@ -4,63 +4,27 @@ transformers porn
 
 :: StoryData
 {
-  "ifid": "A12C3437-9B4F-4D48-B770-03A589ACAF47",
-  "format": "SugarCube",
-  "format-version": "2.37.3",
-  "start": "Index - Character Creation",
-  "tag-colors": {
+"ifid": "A12C3437-9B4F-4D48-B770-03A589ACAF47",
+"format": "SugarCube",
+"format-version": "2.37.3",
+"start": "Untitled Passage 1",
+"tag-colors": {
     "startup": "red"
-  },
-  "zoom": 1
+},
+"zoom": 1
 }
 
 
-:: Autobot Intro {"position":"175,175","size":"100,100"}
-A shrill beeping fills your habsuite, bouncing off the barren metal walls and into your unprepared audials. You roll over with a groan, taking off your portable HUD and throwing it to the floor. That doesn't quiet it in the least, but it muffles with the distance. Your optics are slow to power on, $opticColor lights dim and the feedback fuzzy. Finally your processor onlines enough to make out the blurry features of your room.
-
-Monitor duty, again.
-
-You kick one pede, then the other, over the edge of your berth. After yesterday's battle, your frame feels like you got put back together with spare parts. Your joints creak as you shuffle about your habsuite, preparing for the day by wiping down your face with a moist cloth and looking through the Autobot network's latest updates.
-
-[[Stumble out the door]]
+:: Assist Prowl {"position":"575,450","size":"100,100"}
 
 
-:: Character Sheet {"position":"550,25","size":"100,100"}
-Here is Character Sheet! It's a sheet for a character.
 
-Your Designation is: $mc.name
-Your age is: ????
-You're an <<set $compliment to either("alluring", "attractive", "optic-catching")>> $compliment $armorColor $altForm.
-Your frame is $composition.
-
-I will fill this out later with more writing rn I'm excited I got it to work!
-
-
-:: Character Stats {"position":"800,25","size":"100,100"}
-Virginity: $mcVirginity
-Corruption Level: $mcCorruption
-Strength: $mcStrength
-Intelligence: $mcIntelligence
-
-
-:: Disclaimer {"position":"50,175","size":"100,100"}
-This is an 18+ game. No minors allowed!
-
-Your character has both a valve and spike, regardless of gender chosen at the start. This is something you cannot opt out of at this time. If this is something that will cause you distress, you should click out now.
-
-This is a fangame, not canon or related to Hasbro, and has disturbing/graphic sexual content.
-
-<<button [[I understand ->Autobot Intro]]>> <</button>> 
-
-
-:: Index - Character Creation {"position":"50,25","size":"100,100"}
-<center><h1>Personal Construction</h1></center>
-             
+:: Character Editor {"position":"900,25","size":"100,100"}
 __Designation:__ <<textbox "$mc.name" "" autofocus>>
  <<if !$mc.name>>
             <<set $mc.name to "Iota">>
  <</if>> 
-            
+ 
 __Gender:__
 <label><<radiobutton "$mc.gender" "femme" checked>> Femme (Woman)</label>
 <label><<radiobutton "$mc.gender" "mech">> Mech (Man)</label>
@@ -91,7 +55,185 @@ __Alt-form:__
 <<listbox "$altForm">><<optionsfrom _altForm>><</listbox>>
 
 <<set _armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
-<<set $metalColor = _armorColor>>
+<<set $armorColor = _armorColor>>
+__Armor Color:__
+<<listbox "$armorColor">><<optionsfrom _armorColor>><</listbox>>
+
+
+
+:: Character Sheet {"position":"275,25","size":"100,100"}
+Here is Character Sheet! It's a sheet for a character.
+
+Your Designation is: $mc.name
+Your age is: ????
+You're an <<set $compliment to either("alluring", "attractive", "optic-catching")>> $compliment $armorColor $altForm.
+Your frame is $composition.
+
+I will fill this out later with more writing rn I'm excited I got it to work!
+
+<<link "<<scicon cog>>Character Editor">>
+	<<script>>
+    Dialog.setup("Character Editor");
+    Dialog.wiki(Story.get("Character Editor").processText());
+    Dialog.open();
+    <</script>>
+<</link>>
+
+
+
+:: Character Stats {"position":"525,25","size":"100,100"}
+HP: $mcHealth
+Strength: $mcStrength
+Intelligence: $mcIntelligence
+Aim: $mcAim
+<kinktext>Virginity: $mcVirginity
+Corruption Level: $mcCorruption
+Dominance: $mcDominant
+Submissiveness: $mcSubmissive</kinktext>
+
+
+:: Communications Hub {"position":"450,450","size":"100,100"}
+
+
+
+:: Datapad {"position":"650,25","size":"100,100"}
+Current Day: 
+Time: 
+
+Current Duty: 
+
+Missions: 
+
+
+:: Defunct Intro {"position":"25,800","size":"100,100"}
+A shrill beeping fills your habsuite, bouncing off the barren metal walls and into your unprepared audials. You roll over with a groan, taking off your portable HUD and throwing it to the floor. That doesn't quiet it in the least, but it muffles with the distance. Your optics are slow to power on, $opticColor lights dim and the feedback fuzzy. Finally your processor onlines enough to make out the blurry features of your room.
+
+Monitor duty, again.
+
+You kick one pede, then the other, over the edge of your berth. After yesterday's battle, your frame feels like you got put back together with spare parts. Your joints creak as you shuffle about your habsuite, preparing for the day by wiping down your face with a moist cloth and looking through the Autobot network's latest updates.
+
+[[Stumble out the door]]
+
+
+:: Disclaimer {"position":"325,200","size":"100,100"}
+<<set $sheetDisable = false>><<set $statsDisable = false>> This is an 18+ game. No minors allowed!
+
+Your character has both a valve and spike, regardless of gender chosen at the start. This is something you cannot opt out of at this time. If this is something that will cause you distress, you should click out now.
+
+This is a fangame, not canon or related to Hasbro, and has disturbing/graphic sexual content.
+
+The content will include (but is not limited to):
+noncon
+amputation
+minor character death
+sire/carrier kink
+ooc behavior
+lots of robot sex
+kidnapping
+abuse
+coercion and manipulation
+
+<<button [[I am 18+ and I understand ->Rude Awakening]]>> <</button>> 
+
+
+:: Grab a weapon {"position":"575,275","size":"100,100"}
+<<set $mcDominant += 1>> <kinktext>Dominance +1</kinktext>
+
+You see that horrible red face on their armor--twin to the harbinger of death--and you waste no time in grabbing a weapon. You hold the tool between you and the white medic, glaring defiantly between one and then the other.
+
+"Don't touch me!" You carefully move back on the medical slab until you can feel the edge, cautiously lowering one pede to the floor and then the other. The white medic puts up his servos in a placating gesture, his optics never leaving your face even when you make a motion like you will lunge at him. He pointedly ignores the laser scalple in your grasp.
+
+"We're not going to hurt you," You scoff at his words, optics never leaving the two mechs in front of you. You don't know if you have the werewithal to actually use the meager weapon in your servo, but you're definitely not letting these monsters lay one digit on you.
+
+
+
+
+
+[[Keep the newcomer at bay]]
+
+
+:: Gym Room {"position":"325,450","size":"100,100"}
+
+
+
+:: Homeworld Destroyed Intro {"position":"75,200","size":"100,100"}
+<<set $sheetDisable = true>><<set $statsDisable = true>> The last moments of your homeworld are hazy; blurry with motion and fear. The day had been so regular, so mundane, that you can't remember the bulk of how you spent the remaining hours in your home. You only remember you were doing something unimportant, a standard part of your daily routine, when a great force shook the foundations of your home; a force powerful enough to cause the great steel columns of the castle to tremble in its wake.
+
+You think perhaps you had been painting or reading. Whatever it was, your memories immediately jump to scrambling out of your seat and running to the window.
+
+You remember the sight most clearly, the great beast that had torn your life apart: hovering far above your world, a giant black ship that overtook the sky itself. Emblazoned on its belly, a glaring purple mask. The very picture of hatred and malice. It was dropping weapons you had never seen before, but they brought fire upon contact with the buildings below.
+
+The door behind you slams open. Your younger sister, head of the castle guard, sweeping in like a storm, her servo around your wrist joint and forcing you into a run immediately.
+
+You babble questions at her: where your sire is, where you're going, what happened to the negotiations. She doesn't pause to answer, dragging you along behind her without break. She turns the corner, coming upon your greying carrier lying in a magenta puddle, but she hardly gives them a glance. You don't even get a moment to kneel and tend to your creator, to try and save them from the wounds that continue to leak energon. Perhaps it was for the best, as the ceiling collapsed upon the hallway you had passed through soon after, but it still causes a lump in your throat tubing.
+
+Your sister drags you passed the throne room to the research wing of the castle: the pride of the kingdom and the hope for your planet's future. Your sire's top scientists had only just made headway on a long-distance shuttle with the goal of finally taking to the stars and finding your ancestors' world. To finally find where your people came from.
+
+She ushers you up the ramp to the very machine, but you jerk back to resist being pushed through the shuttle door.
+
+"Voltmaker, where are we going? What about sire? We can't leave her," Your sister's stony, determined face finally flinches into something softer. Mournful. She continues shoving you through the door and into the hub of the shuttle, letting the door slide closed behind the both of you.
+
+"I know you don't understand right now," She immediately sets upon the computer, jabbing in directions to the shuttle's HUD with an impatience that borders on manic, "But there's something I need you to do. It's the most important thing you can do for our family now."
+
+You shift on your pedes uneasily as another strong explosion rocks the shuttle, the vibrations trembling up your legs.
+
+After she's done, your sister turns to you and takes your arms gently. She works her jaw as she seeks for words before reaching into her subspace, pulling out the heart of your homeworld. The single most important relic of your people. Your jaw flaps open at the glowing crystal chunk in her palm. She shoves it into your chest, forcing you to take it.
+
+"I'm not going with you," Your sister straightens up, pulling her shoulders back, "You're going to take the primordial stone and leave. You need to do everything you can to keep it safe. This is non-negotiable."
+
+You try to argue with her but your sister takes you by the shoulders and shoves you back. She keeps shoving you, despite your attempts to escape her duty-worn servos, until your pedes hit something hard and you tumble back. Instead of the hard steel floor, you land in the cushy mesh of a stasis pod. It's opulent, fit for a monarch, but your sister closes the lid over it like a tomb. She places one servo against the reinforced glass, looking down at you with a pain that seizes your spark.
+You've never seen such open grief on Voltmaker, not even when her own carrier died.
+
+She quickly jabs at the interface next to the pod, causing it to stir to life around you. The shuttle still hums with the explosions outside, still trembles faintly through the cushioning of the pod, but you can't focus on anything other than the mech in front of you--tinged blue through the pod glass.
+
+Lubricant leaks from your optics as you plead for her to let you out, to let you stay, even if it means you die in the siege, but you have no hope that she can actually hear your words. She gives you a gentle, agonized smile before moving away and out of sight. You know without seeing her that she's leaving.
+
+The pod quickly fills with stasis fluid as you feel the shuttle shiver with the force it takes to lift off the ground. You press your servos helplessly against the fluid vents, trying to stop its flow. The purple fluid continues to pool around your frame, seeping into your seams and vents, washing your system with a sudden need for recharge. You're gently lulled into forced stasis as you see, from the bare peek of the shuttle glass that you can get, that great beast in the sky bearing down with unrelenting force.
+
+Tearing apart your defenseless home with a viciousness and cruelty you had never seen wielded by another creature.
+
+[[But who were you before this? ->Index - Character Creation]] 
+
+
+:: Index - Character Creation {"position":"200,200","size":"100,100"}
+<center><h1>Personal Construction</h1></center>
+
+__Designation:__ <<textbox "$mc.name" "" autofocus>>
+ <<if !$mc.name>>
+            <<set $mc.name to "Iota">>
+ <</if>> 
+ 
+__Gender:__
+<label><<radiobutton "$mc.gender" "femme" checked>> Femme (Woman)</label>
+<label><<radiobutton "$mc.gender" "mech">> Mech (Man)</label>
+<label><<radiobutton "$mc.gender" "bot">> Nonbinary (Bot)</label>
+
+<<set _optic to ["blue", "red", "gold", "purple"]>>
+<<set $opticColor = _optic>>
+__Optic Color:__
+<label><<radiobutton "$opticColor" "blue" checked>> Blue </label>
+<label><<radiobutton "$opticColor" "red">> Red </label>
+<label><<radiobutton "$opticColor" "gold">> Gold </label>
+<label><<radiobutton "$opticColor" "purple">> Purple </label>
+ 
+<<set _height = ["giant", "large", "average", "small", "mini"]>>
+<<set $height = _height>>
+__Frame Type:__
+
+<<listbox "$height">><<optionsfrom _height>><</listbox>>
+
+<<set _composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<<set $composition = _composition>>
+__Frame Composition:__
+<<listbox "$composition">><<optionsfrom _composition>><</listbox>>
+
+<<set _altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]>>
+<<set $altForm = _altform>>
+__Alt-form:__
+<<listbox "$altForm">><<optionsfrom _altForm>><</listbox>>
+
+<<set _armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
+<<set $armorColor = _armorColor>>
 __Armor Color:__
 <<listbox "$armorColor">><<optionsfrom _armorColor>><</listbox>>
 
@@ -99,8 +241,57 @@ __Armor Color:__
 <center><<button [[Ready ->Disclaimer]] >><</button>></center>
 
 
+:: Keep the newcomer at bay {"position":"700,200","size":"100,100"}
+<<set $relationshipDisable = false>>
 
-:: Start monitor duty {"position":"425,175","size":"100,100"}
+
+:: Rec Room {"position":"50,450","size":"100,100"}
+<<set to [[Gym Room]], [[Shooting Simulation]], [[Communications Hub]] <<if $prowl.approval >= 45>>, [[Assist Prowl]]<</if>)
+
+
+
+:: Rude Awakening {"position":"450,200","size":"100,100"}
+
+The sound of metal clinking is the first, fuzzy sensation that breaks through the void of forced stasis. It's a gentle sound like the chime of a tuning fork during temple service.  Your optics are slow to online, despite your sole focus being drawn to the sound. Eventually the sound disappears just before your optics fully come online, visual feed still fuzzy with static.
+
+You're on your backplates staring straight up at a garish orange-bronze ceiling. You think, at once, that it's quite ugly and not at all like the metal interiors you're used to. It's 'unfinished': bolts bare to the naked optic and metal unpolished, showing a fine collection of dirt across its once shiny surface. Very utilitarian.
+
+"Oh, good. You're awake. You gave us quite a scare when you didn't immediately online," A white mech--a medic, you think--comes into view. Just as utilitarian in form as the ceiling he's under. What startles you to full awareness is just how **boxy** this mech is. His frame is like yours but not like yours. In fact, not like any mech you've ever seen. You startle up onto your forearms, giving the medic a once over as he tries to ease you back into a lying position.
+
+"Who are you talking to, Ratch? Are they awake?" Another mech, in deep green armor, comes up behind this strange medic. Oh, he's just as boxy if not moreso! You scramble back on the metal slab, trying to pull as far away from this strange medic's servos as possible.
+
+You see a series of medical instruments just off to the side. Among them what you think must be a scalple.
+
+[[Grab a weapon]]
+
+[[Scramble off the berth]]
+
+
+:: Scramble off the berth {"position":"575,150","size":"100,100"}
+<<set $mcSubmissive += 1>> <kinktext>Submissiveness +1</kinktext>
+
+You hastily pull yourself off the medical table, slipping as you get one pede on the floor and tumbling down chassis first. The medic immediately comes around to try to help you, cursing all the while, but you don't hesitate to continue moving. You put as much space--as quickly as you can--between you and your kidnappers, speeding to tbe other end of the room and ducking behind another of the medical slabs.
+
+"Who are you? Where have you taken me?" You eye them warily, tring to keep both of them in your field of view. So preoccupied with getting distance between you and these strangers, you almost miss the red face emblazoned proudly upon their metal. Stark and bright. A close brother to that mark of evil. Dread makes your pauldrons hunch all the way up to your audials. How did you end up in their servos?
+
+"It's okay, just calm down," The green mech speaks through his face covering, tone too gentle and cheery for your liking, "We're not going to hurt you."
+
+You don't believe them in the least. Unfortunately, there's so many doors in this room that you're not sure which one leads **out**.
+
+Before you can come up with a plan, one of them opens to reveal a __large__ blue and red bot.
+	<<if $height=["giant"]>> But not as large as you.
+	<<elseif $height=["large]>> About the same size as you. Maybe you can still take him.
+	<<elseif $height=["average","small","mini"]>> Larger than you. You may not be able to threaten your way out of this.
+	<</if>>
+
+[[Keep the newcomer at bay]]
+
+
+:: Shooting Simulation {"position":"200,450","size":"100,100"}
+
+
+
+:: Start monitor duty {"position":"275,800","size":"100,100"}
 You look down at your $armorColor servos. hell yea it works
 
 $opticColor
@@ -121,27 +312,224 @@ $optimus.approval
 $prowl.approval <i just gave you a prowl point spend it well
 
 
-:: StoryInit [startup] {"position":"175,25","size":"100,100"}
+:: StoryInit [startup] {"position":"25,25","size":"100,100"}
 ***************************
 	APPROVAL SYSTEM
 ***************************
 
+<<set $relationshipDisable is true>>
+
 */* Create Prowl */*
 
 <<set $prowl = ["Prowl"]>>
+<<set $metProwl is false>>
 
 */* Create Prowl Approval System */*
 
 <<set $prowl.approval = 0>>
 
+
 */* Create Optimus */*
 
 <<set $optimus = ["Optimus"]>>
+<<set $metOptimus is false>>
 
 */* Create Optimus Approval System */*
 
-<<set $optimus.approval = 100>>
+<<set $optimus.approval = 0>>
 
+
+*/* Create Jazz */*
+
+<<set $jazz = ["Jazz"]>>
+<<set $metJazz is false>>
+
+*/* Create Jazz Approval System */*
+
+<<set $jazz.approval = 0>>
+
+
+*/* Create Ratchet */*
+
+<<set $ratchet = ["Ratchet"]>>
+<<set $metRatchet is false>>
+
+*/* Create Ratchet Approval System */*
+
+<<set $ratchet.approval = 0>>
+
+
+*/* Create Ironhide */*
+
+<<set $ironhide = ["Ironhide"]>>
+<<set $metIronhide is false>>
+
+*/* Create Ironhide Approval System */*
+
+<<set $ironhide.approval = 0>>
+
+
+*/* Create Bumblebee */*
+
+<<set $bumblebee = ["Bumblebee"]>>
+<<set $metBumblebee is false>>
+
+*/* Create Bumblebee Approval System */*
+
+<<set $bumblebee.approval = 0>>
+
+
+
+*/* Prowl Approval System */*
+
+0-14: Prowl can't tell you apart from the cannon fodder. 
+15-24: Prowl sees you as a regular soldier.
+25-34: Prowl thinks you are a fine, reasonable soldier.
+35-49: Prowl thinks you are better than most.
+50-64: Prowl thinks you are of a similar mind.
+65-74: Prowl sees you as a confidante.
+75-84: Prowl wants to be around you.
+85-94: Prowl needs to be near you.
+95-100: Prowl trusts you with the Autobot cause.
+
+<<if $prowl.approval >=95>>
+	Prowl trusts you with the Autobot cause.
+<<elseif $prowl.approval >=85 && $prowl.approval <=94>>
+	Prowl needs to be near you.
+<<elseif $prowl.approval >=75 && $prowl.approval <=84>>
+						Prowl wants to be around you.
+<<elseif $prowl.approval >=65 && $prowl.approval <=74>>
+	Prowl sees you as a confidante.
+<<elseif $prowl.approval >=50 && $prowl.approval <=64>>
+	Prowl thinks you are of a similar mind.
+<<elseif $prowl.approval >=35 && $prowl.approval <=49>>
+	Prowl thinks you are better than most.
+<<elseif $prowl.approval >=25 && $prowl.approval <=34>>
+	Prowl thinks you are a fine, reasonable soldier.
+<<elseif $prowl.approval >=15 && $prowl.approval <=24>>
+	Prowl sees you as part of the rabble.
+<<elseif $prowl.approval >=0 && $prowl.approval <=14>>
+	Prowl can't tell you apart from the cannon fodder.
+<</if>>
+
+Clamps Prowl's approval during an interaction:
+
+<<set $prowl.approval to Math.clamp($prowl.approval + 5, 0, 100)>>
+
+<<set $prowl.approval to Math.clamp($prowl.approval - 5, 0, 100)>>
+
+
+
+*/* Optimus Approval System */*
+
+0-14: Optimus considers you his responsibility. 
+15-24: Optimus sees the best in you.
+25-34: Optimus is glad you are on his side.
+35-49: Optimus appreciates your friendship.
+50-64: Optimus seeks your input.
+65-74: Optimus wants to keep you close.
+75-84: Optimus longs to be near you.
+85-94: Optimus bears his spark to you.
+95-100: Optimus considers you one spark in separate frames.
+
+<<if $optimus.approval >=95>>
+	Optimus considers you one spark in separate frames.
+<<elseif $optimus.approval >=85 && $prowl.approval <=94>>
+	Optimus bears his spark to you.
+<<elseif $optimus.approval >=75 && $prowl.approval <=84>>
+	Optimus longs to be near you.
+<<elseif $optimus.approval >=65 && $prowl.approval <=74>>
+	Optimus wants to keep you close.
+<<elseif $optimus.approval >=50 && $prowl.approval <=64>>
+	Optimus seeks your input.
+<<elseif $optimus.approval >=35 && $prowl.approval <=49>>
+	Optimus appreciates your friendship.
+<<elseif $optimus.approval >=25 && $prowl.approval <=34>>
+	Optimus is glad you are on his side.
+<<elseif $optimus.approval >=15 && $prowl.approval <=24>>
+	Optimus sees the best in you.
+<<elseif $optimus.approval >=0 && $prowl.approval <=14>>
+	Optimus considers you his responsibility.
+<</if>>
+
+<<set $optimus.approval to Math.clamp($optimus.approval + 5, 0, 100)>>
+
+<<set $optimus.approval to Math.clamp($optimus.approval - 5, 0, 100)>>
+
+
+
+*/* Jazz Approval System */*
+
+0-14: Jazz is keeping an optic on you. 
+15-24: Jazz tries to help you as much as he can.
+25-34: Jazz thinks you would make an exemplary Autobot.
+35-49: Jazz enjoys spending his free time with you.
+50-64: Jazz thinks of you often.
+65-74: Jazz keeps your secrets.
+75-84: Jazz keeps your picture in his subspace.
+85-94: Jazz can see a future with you.
+95-100: Jazz is as open as he can be with you.
+
+ <<if $jazz.approval >=95>> Jazz is as open as he can be with you.
+ <<elseif $jazz.approval >=85 && $jazz.approval <=94>>
+		Jazz can see a future with you.
+ <<elseif $jazz.approval >=75 && $jazz.approval <=84>>
+		Jazz keeps your picture in his subspace.
+ <<elseif $jazz.approval >=65 && $jazz.approval <=74>>
+		Jazz keeps your secrets.
+ <<elseif $jazz.approval >=50 && $jazz.approval <=64>>
+		Jazz thinks of you often.
+ <<elseif $jazz.approval >=35 && $jazz.approval <=49>>
+		Jazz enjoys spending his free time with you.
+ <<elseif $jazz.approval >=25 && $jazz.approval <=34>>
+		Jazz thinks you would make an exemplary Autobot.
+ <<elseif $jazz.approval >=15 && $jazz.approval <=24>>
+		Jazz tries to help you as much as he can.
+ <<elseif $jazz.approval >=0 && $jazz.approval <=14>>
+		Jazz is keeping an optic on you.
+<</if>>
+
+<<set $jazz.approval to Math.clamp($jazz.approval + 5, 0, 100)>>
+
+<<set $jazz.approval to Math.clamp($jazz.approval - 5, 0, 100)>>
+
+
+
+*/* Ratchet Approval System */*
+
+0-14: Ratchet hopes you stay out of trouble. 
+15-24: Ratchet fusses over you.
+25-34: Ratchet doesn't mind your company.
+35-49: Ratchet wants to teach you the basics of first aid.
+50-64: Ratchet lets you spend your free time in the medbay.
+65-74: Ratchet is soft on you.
+75-84: Ratchet sees the best of the Autobots in you.
+85-94: Ratchet is determined to keep you alive.
+95-100: Ratchet wants to forge 'tomorrow' with you.
+
+ <<if $ratchet.approval >=95>> 
+ 		Ratchet wants to forge 'tomorrow' with you.
+ <<elseif $ratchet.approval >=85 && $ratchet.approval <=94>>
+		Ratchet is determined to keep you alive.
+ <<elseif $ratchet.approval >=75 && $ratchet.approval <=84>>
+		Ratchet sees the best of the Autobots in you.
+ <<elseif $ratchet.approval >=65 && $ratchet.approval <=74>>
+		Ratchet is soft on you.
+ <<elseif $ratchet.approval >=50 && $ratchet.approval <=64>>
+		Ratchet lets you spend your free time in the medbay.
+ <<elseif $ratchet.approval >=35 && $ratchet.approval <=49>>
+		Ratchet wants to teach you the basics of first aid.
+ <<elseif $ratchet.approval >=25 && $ratchet.approval <=34>>
+		Ratchet doesn't mind your company.
+ <<elseif $ratchet.approval >=15 && $ratchet.approval <=24>>
+		Ratchet fusses over you.
+ <<elseif $ratchet.approval >=0 && $ratchet.approval <=14>>
+		Ratchet hopes you stay out of trouble.
+<</if>>
+
+<<set $ratchet.approval to Math.clamp($ratchet.approval + 5, 0, 100)>>
+
+<<set $ratchet.approval to Math.clamp($ratchet.approval - 5, 0, 100)>>
 
 
 
@@ -151,17 +539,25 @@ $prowl.approval <i just gave you a prowl point spend it well
 **************************
 	CHARACTER STATS
 **************************
+
+<<set $sheetDisable is false>>
+<<set $statsDisable is false>>
+
 <<set $mcCorruption = 0>>
 <<set $mcVirginity = true>>
- <<if $mcVirginity>>
- 		<<set $mcVirginity to "You are factory sealed.">>
- <<else>>
- 		<<set $mcVirginity to "Your seal is broken.">>
- <</if>>
+<<if $mcVirginity>>
+	<<set $mcVirginity to "You are factory sealed.">>
+<<else>>
+	<<set $mcVirginity to "Your seal is broken.">>
+<</if>>
 <<set $mcSubmission = 0>>
 <<set $mcStrength = 0>>
 <<set $mcIntelligence = 0>>
 <<set $chastitySeal = true>>
+<<set $mcDominant = 0>>
+<<set $mcSubmissive = 0>>
+<<set $mcHealth = 50>>
+<<set $mcAim = 0>>
 
 
 <<set 
@@ -170,9 +566,9 @@ $prowl.approval <i just gave you a prowl point spend it well
     $face to {},
     $skin to {},
     $body to {}>>
-
-    /* This last one is only for practicality */
 <<set $pages to {}>>
+
+
 
 <<set $armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
 <<set $armorColor = _armorColor>>
@@ -189,35 +585,69 @@ $prowl.approval <i just gave you a prowl point spend it well
 <<set $composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
 <<set $composition = _composition>>
 
+<<set $mc.gender = ["femme", "mech", "bot"]>>
 
 
-:: StoryMenu {"position":"425,25","size":"100,100"}
-<<link "Character Sheet">>
+
+*****************************
+NON-CHARACTER PROCESSES
+*****************************
+
+
+
+
+:: StoryInterface {"position":"1025,25","size":"100,100"}
+
+
+
+:: StoryMenu {"position":"150,25","size":"100,100"}
+<<if $sheetDisable is true>><div class = hide></div>
+<<elseif $sheetDisable is false>>
+	<<link "<<scicon show>>Character Sheet">>
+		<<script>>
+		Dialog.setup("Your Character");
+		Dialog.wiki(Story.get("Character Sheet").processText());
+		Dialog.open();
+		<</script>>
+	<</link>>
+<</if>>
+
+<<if $statsDisable is true>><div class = hide></div>
+<<elseif $statsDisable is false>>
+	<<link "<<scicon bolt>>Character Stats">>
+		<<script>>
+    	Dialog.setup("Your Stats");
+    	Dialog.wiki(Story.get("Character Stats").processText());
+    	Dialog.open();
+    	<</script>>
+	<</link>>
+<</if>>
+
+<<if $relationshipDisable is true>><div class=hide></div>
+<<elseif $relationshipDisable is false>>
+	<<link "<<scicon heart>>The Autobots">>
+		<<script>>
+    	Dialog.setup("Relationships on the Ark");
+    	Dialog.wiki(Story.get("The Autobots").processText());
+    	Dialog.open();
+    	<</script>>
+	<</link>>
+<</if>>
+
+<<link "Datapad">>
 	<<script>>
-	Dialog.setup("Your Character");
-	Dialog.wiki(Story.get("Character Sheet").processText());
-	Dialog.open();
-	<</script>>
-<</link>>
-
-<<link "Character Stats">>
-	<<script>>
-    Dialog.setup("Your Stats");
-    Dialog.wiki(Story.get("Character Stats").processText());
+    Dialog.setup("Work Data");
+    Dialog.wiki(Story.get("Datapad").processText());
     Dialog.open();
     <</script>>
 <</link>>
 
-<<link "The Autobots">>
-	<<script>>
-    Dialog.setup("Relationships on the Ark");
-    Dialog.wiki(Story.get("The Autobots").processText());
-    Dialog.open();
-    <</script>>
-<</link>>
+
+:: StorySubtitle {"position":"1150,25","size":"100,100"}
+by snurt :)
 
 
-:: Stumble out the door {"position":"300,175","size":"100,100"}
+:: Stumble out the door {"position":"150,800","size":"100,100"}
 The way to the cafeteria  is a game of dodging racing speedsters and swerving around mechs buried in their datapads. The Ark isn't too terribly crowded with mechs, the crew being scarce compared to the ships back on Cybertron, but it's most popular corridors aren't spacious enough for all the pede traffic.
 
 The cafeteria is similarly crowded, mechs shuffling to the energon dispenser and filling up tables. Some groups are chatting animatedly, some groups are sitting and reading through reports quietly.
@@ -233,36 +663,297 @@ Your cube filled with the standard-grade energon, you quickly make your way out 
 [[Start monitor duty]]
 
 
-:: The Autobots {"position":"675,25","size":"100,100"}
-This can show the approval system for the characters.
+:: The Autobots {"position":"400,25","size":"100,100"}
+<<if $metOptimus is false>><div class = "hide"></div>
+<<elseif $metOptimus is true>>
+<div class="flex-container">
+  <div class="flex-box">Optimus
+  		<img src="https://i.pinimg.com/736x/62/cd/cc/62cdcc1af799a10aa29cd8408ba2d206.jpg" height="100" width="100" align="left">
+			Relationship:  $optimus.approval
+			<<nobr>>
+            	 <<if $optimus.approval >=95>>
+                 			Optimus considers you one spark in separate frames.
+ 				<<elseif $optimus.approval >=85 && $prowl.approval <=94>>
+							Optimus bears his spark to you.
+ 				<<elseif $optimus.approval >=75 && $prowl.approval <=84>>
+							Optimus longs to be near you.
+				<<elseif $optimus.approval >=65 && $prowl.approval <=74>>
+							Optimus wants to keep you close.
+ 				<<elseif $optimus.approval >=50 && $prowl.approval <=64>>
+							Optimus seeks your input.
+ 				<<elseif $optimus.approval >=35 && $prowl.approval <=49>>
+							Optimus appreciates your friendship.
+ 				<<elseif $optimus.approval >=25 && $prowl.approval <=34>>
+							Optimus is glad you are on his side.
+ 				<<elseif $optimus.approval >=15 && $prowl.approval <=24>>
+							Optimus sees the best in you.
+ 				<<elseif $optimus.approval >=0 && $prowl.approval <=14>>
+							Optimus considers you his responsibility.
+				<</if>>
 
-Prowl: $prowl.approval
- <<if $prowl.approval >=95>>
- 		Prowl trusts you with the Autobot cause.
- <<elseif $prowl.approval >=85 && $prowl.approval <=94>>
-		Prowl needs to be near you.
- <<elseif $prowl.approval >=75 && $prowl.approval <=84>>
-		Prowl wants to be around you.
- <<elseif $prowl.approval >=65 && $prowl.approval <=74>>
-		 Prowl sees you as a confidante.
- <<elseif $prowl.approval >=50 && $prowl.approval <=64>>
-		Prowl thinks you are of a similar mind.
- <<elseif $prowl.approval >=35 && $prowl.approval <=49>>
-		Prowl thinks you are better than most.
- <<elseif $prowl.approval >=25 && $prowl.approval <=34>>
-		Prowl thinks you are a fine, reasonable soldier.
- <<elseif $prowl.approval >=15 && $prowl.approval <=24>>
-		Prowl sees you as part of the rabble.
- <<elseif $prowl.approval >=0 && $prowl.approval <=14>>
-		Prowl can't tell you apart from the cannon fodder.
- <</if>>
+				<<set $optimus.approval to Math.clamp($optimus.approval + 5, 0, 100)>>
 
-Optimus: $optimus.approval
+				<<set $optimus.approval to Math.clamp($optimus.approval - 5, 0, 100)>>
+            
+            <</nobr>>
+   </div>     
+</div>
+<</if>>
 
-:)
+<<if $metProwl is false>><div class = "hide"></div>
+<<elseif $metProwl is true>>
+<div class="flex-container">
+  <div class="flex-box">Prowl
+		<img src= "https://i.pinimg.com/736x/b1/66/da/b166da176469f301ff93412a94f458e5.jpg" width="100" height="100" align="left">
+			Relationship: $prowl.approval
+            <<nobr>>
+ 				<<if $prowl.approval >=95>>
+ 						Prowl trusts you with the Autobot cause.
+ 				<<elseif $prowl.approval >=85 && $prowl.approval <=94>>
+						Prowl needs to be near you.
+ 				<<elseif $prowl.approval >=75 && $prowl.approval <=84>>
+						Prowl wants to be around you.
+ 				<<elseif $prowl.approval >=65 && $prowl.approval <=74>>
+		 				Prowl sees you as a confidante.
+ 				<<elseif $prowl.approval >=50 && $prowl.approval <=64>>
+						Prowl thinks you are of a similar mind.
+ 				<<elseif $prowl.approval >=35 && $prowl.approval <=49>>
+						Prowl thinks you are better than most.
+ 				<<elseif $prowl.approval >=25 && $prowl.approval <=34>>
+						Prowl thinks you are a fine, reasonable soldier.
+ 				<<elseif $prowl.approval >=15 && $prowl.approval <=24>>
+						Prowl sees you as part of the rabble.
+ 				<<elseif $prowl.approval >=0 && $prowl.approval <=14>>
+						Prowl can't tell you apart from the cannon fodder.
+ 				<</if>>
+                
+                <<set $prowl.approval to Math.clamp($prowl.approval + 5, 0, 100)>>
+
+				<<set $prowl.approval to Math.clamp($prowl.approval - 5, 0, 100)>>
+
+                <</nobr>>
+        </div>
+</div>
+<</if>>
+
+<<if $metJazz is false>><div class = "hide"></div>
+<<elseif $metJazz is true>>
+<div class="flex-container">
+  <div class="flex-box">Jazz
+  		<img src= https://i.pinimg.com/736x/81/11/40/811140057cd98d2f26874fe7f0c5b349.jpg width="100" height="100" align="left">
+			Relationship: $jazz.approval
+			<<nobr>>
+            	<<if $jazz.approval >=95>>
+                 		Jazz is as open as he can be with you.
+				<<elseif $jazz.approval >=85 && $jazz.approval <=94>>
+						Jazz can see a future with you.
+ 				<<elseif $jazz.approval >=75 && $jazz.approval <=84>>
+						Jazz keeps your picture in his subspace.
+				<<elseif $jazz.approval >=65 && $jazz.approval <=74>>
+						Jazz keeps your secrets.
+ 				<<elseif $jazz.approval >=50 && $jazz.approval <=64>>
+						Jazz thinks of you often.
+ 				<<elseif $jazz.approval >=35 && $jazz.approval <=49>>
+						Jazz enjoys spending his free time with you.
+ 				<<elseif $jazz.approval >=25 && $jazz.approval <=34>>
+						Jazz thinks you would make an exemplary Autobot.
+ 				<<elseif $jazz.approval >=15 && $jazz.approval <=24>>
+						Jazz tries to help you as much as he can.
+ 				<<elseif $jazz.approval >=0 && $jazz.approval <=14>>
+						Jazz is keeping an optic on you.
+				<</if>>
+                
+                <<set $jazz.approval to Math.clamp($jazz.approval + 5, 0, 100)>>
+
+				<<set $jazz.approval to Math.clamp($jazz.approval - 5, 0, 100)>>
+                
+            <</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $metRatchet is false>><div class = "hide"></div>
+<<elseif $metRatchet is true>>
+<div class="flex-container">
+  <div class="flex-box">Ratchet
+  		<img src=https://i.pinimg.com/736x/27/34/7d/27347d889be91954be92192ad7440a31.jpg width="100" height="100" align="left">
+			Relationship: $ratchet.approval
+			<<nobr>>
+        		<<if $ratchet.approval >=95>> 
+ 					Ratchet wants to forge 'tomorrow' with you.
+ 				<<elseif $ratchet.approval >=85 && $ratchet.approval <=94>>
+					Ratchet is determined to keep you alive.
+ 				<<elseif $ratchet.approval >=75 && $ratchet.approval <=84>>
+					Ratchet sees the best of the Autobots in you.
+ 				<<elseif $ratchet.approval >=65 && $ratchet.approval <=74>>
+					Ratchet is soft on you.
+ 				<<elseif $ratchet.approval >=50 && $ratchet.approval <=64>>
+					Ratchet lets you spend your free time in the medbay.
+ 				<<elseif $ratchet.approval >=35 && $ratchet.approval <=49>>
+					Ratchet wants to teach you the basics of first aid.
+ 				<<elseif $ratchet.approval >=25 && $ratchet.approval <=34>>
+					Ratchet doesn't mind your company.
+ 				<<elseif $ratchet.approval >=15 && $ratchet.approval <=24>>
+					Ratchet fusses over you.
+ 				<<elseif $ratchet.approval >=0 && $ratchet.approval <=14>>
+					Ratchet hopes you stay out of trouble.
+				<</if>>
+
+			<<set $ratchet.approval to Math.clamp($ratchet.approval + 5, 0, 100)>>
+
+			<<set $ratchet.approval to Math.clamp($ratchet.approval - 5, 0, 100)>>
+            
+           	<</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $metIronhide is false>><div class = "hide"></div>
+<<elseif $metIronhide is true>>
+<div class="flex-container">
+  <div class="flex-box">Ironhide
+  		<img src=https://i.pinimg.com/736x/2a/e3/5b/2ae35b3af99edf071f2bd734576abd5e.jpg height="100" width="100" align="left">
+			Relationship: $ironhide.approval
+        	<<nobr>>
+			<</nobr>>
+   </div>     
+</div>
+<</if>>
+
+<<if $mettBumblebee is false>><div class = "hide"></div>
+<<elseif $metBumblebee is true>>
+<div class="flex-container">
+  <div class="flex-box">Bumblebee
+  		<img src=https://i.pinimg.com/736x/ae/5b/5d/ae5b5d1cc3d2bf6ecd2bb2c72221bf37.jpg height="100" width="100" align="left">
+			Relationship: $bumblebee.approval
+            <<nobr>>
+			<</nobr>>
+   </div>     
+</div>
+<</if>>
 
 
-:: Widgets {"position":"300,25","size":"100,100"}
+:: Untitled Passage 1 {"position":"150,325","size":"100,100"}
+$min
+$time
+
+
+:: Widgets [widget nobr] {"position":"775,25","size":"100,100"}
+**************************
+		TIME WIDGET
+**************************
+
+<<=$CurDate.toLocaleString("en-US", { weekday: "long", month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" } )>>
+
+
+<<set $days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]>>
+<<set $gameDay = 0>>
+<<set $dayPart = ["morning", "afternoon", "evening", "night"]>>
+
+<<set $time = ["01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", 00:00"]>>
+<<set $gameTime = 1>>
+<<set $playerAlarm = 1>>
+
+<<if $time == "00:00">>
+	<<set $gameDay += 1>>
+<</if>>
+
+<<if $day is "Saturday" && $time is "00:00">>
+	<<set $gameDay = 0>>
+<</if>>
+
+
+
+
+
+
+
+/*
+	Date & Time Widget Setup
+*/
+<<set
+	window.GameDays to [
+		"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+	];
+	window.GameMonths to [
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+		"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+	];
+
+	/*
+		Below we have to use the multi-parameter version of the Date
+		constructor, rather than the date string version, because the
+		date string version treats a missing timezone offset as UTC.
+		While there are ways to determine players' timezone offsets,
+		so they could be added to a date string, it's more convenient
+		simply to use the multi-parameter constructor.
+
+		The point of this is so that you can simply initialize the game
+		world clock to whatever date and time you wish without having to
+		worry about the players' timezone offsets, while still ensuring
+		that they all see the same game world dates and times.
+	*/
+	/* params: year , month(0-based) , day , hour(24H) , minute [, second ] */
+	$gameDate to new Date(2015, 2, 17, 3, 24); /* e.g. Mar 17, 2015 03:24 */
+>>
+
+
+/*
+	Date & Time Advancement Widget Definitions
+*/
+/* Adds the specified number of minutes. */
+<<widget "addmins">>\
+<<run $gameDate.setMinutes($gameDate.getMinutes() + $args[0])>>\
+<</widget>>
+
+/* Adds the specified number of hours. */
+<<widget "addhours">>\
+<<run $gameDate.setHours($gameDate.getHours() + $args[0])>>\
+<</widget>>
+
+/* Adds the specified number of days. */
+<<widget "adddays">>\
+<<run $gameDate.setHours($gameDate.getHours() + $args[0] * 24)>>\
+<</widget>>
+
+
+/*
+	Date & Time Printing Widget Definitions
+*/
+/* Prints the current date ("{weekday} {month} {day}, {year}"). */
+<<widget "date">>\
+<<print String.format("{0} {1} {2}, {3}",
+	GameDays[$gameDate.getDay()],
+	GameMonths[$gameDate.getMonth()],
+	$gameDate.getDate(),
+	$gameDate.getFullYear()
+)>>\
+<</widget>>
+
+/* Prints the current time (12H). */
+<<widget "time12hr">>\
+<<if $gameDate.getHours() eq 0>>\
+12\
+<<elseif $gameDate.getHours() gt 12>>\
+<<print $gameDate.getHours() - 12>>\
+<<else>>\
+<<print $gameDate.getHours()>>\
+<</if>>:\
+<<if $gameDate.getMinutes() lt 10>>0<</if>><<print $gameDate.getMinutes()>> \
+<<if $gameDate.getHours() gte 12>>PM<<else>>AM<</if>>\
+<</widget>>
+
+/* Prints the current time (24H). */
+<<widget "time24hr">>\
+<<if $gameDate.getHours() lt 10>>0<</if>><<print $gameDate.getHours()>>:\
+<<if $gameDate.getMinutes() lt 10>>0<</if>><<print $gameDate.getMinutes()>>\
+<</widget>>
+
+/* Prints the current date and time (12H). */
+<<widget "datetime">><<date>> <<time12hr>> (<<time24hr>>)<</widget>>
+
+
+
 
 /*************************** 
     ARMOR COLORS WIDGETS 
@@ -383,21 +1074,174 @@ Optimus: $optimus.approval
 
 
 
-<<widget "PopupCharacterSheet">>
+<<widget "PopupCharacterSheet">><</widget>>
+
+
+********icons********
+
+<<widget "scicon">>
+	<span @class="'sc-icon sc-' + $args.raw" alt="' + $args.raw + '">
+	</span>
+<</widget>>
 
 
 
 :: StoryStylesheet [stylesheet]
 @font-face {
-    font-family: dogica;
-    src: url("fonts/dogica.ttf") format(truetype);
+    font-family: "Dogica";
+    src: url(fonts/dogicapixelbold.ttf) format("truetype");
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
 }
 
-body    {
-    background-color: #000000
-    font-family: dogica;
+#story-title {
+ 	padding: 8px; 
+}
+
+h1 {
+ 	font-family: 'White Rabbit';
+    font-size: 250%;
+  	
+}
+
+#character {
+  	background-color: white;
+  	width: 100px;
+ 	height: 100px;
+ 	bottom: 0px; 
+ 	right: 0px;
+  
+}
+
+#approval {
+  	border: 1px solid #444;
+	border-radius: 4rem;
+  	border-width: 3px;
+  
+}
+
+#passages {
+	border: 1px solid #444;
+	border-radius: 4rem;
+  	border-width: 3px;
+  	border-color: #13919e;
+  	display: flex;
+}
+
+.passage {
+  	margin: 20px 8px 20px 22px;
+  	width: 100%;
+  	padding: 10px 0px;
+  	color: white;
+  	font-size: 100%;
+  	font-family: 'White Rabbit';
+  	font-weight: 300;
+  	font-style: normal;
+  	text-align: justify; 
+  	position: relative; 
+  	left: 0em;
+  	right: 0em;
+  	max-width: 915px;
+  	overflow-wrap: break text;
+  	
+}
+
+
+body {
+	font-family: 'White Rabbit';
+	font-size: 18px;
+  	color: white;
+  	position: center;
+  	background-color: #000000;
+
+}
+
+kinktext {
+  	color: hotpink;
+}
+
+#ui-dialog-titlebar {
+	border-radius: 1rem;
+    background-color: transparent;
+  	padding: 5px;
+}
+
+#ui-dialog-title {
+ 	text-transform: capitalize; 
+}
+
+#ui-dialog-body {
+  	border-radius: 1rem;
+  	border: 0px;  	
+}
+
+#ui-dialog-body ul.buttons li button#restart-ok {
+  	border-radius: 2rem;
+  	background-color: #c40010;
+  	border: 0px;
+}
+
+#ui-dialog-body ul.buttons li button#restart-cancel {
+  	border-radius: 2rem;
+  	background-color: #c40010;
+  	border: 0px;
+}
+
+#ui-dialog-body.saves ul.buttons li button#saves-export {
+  	border: 0px;
+  	background-color: #c90000;
+  	border-radius: 2rem;
+}
+
+#ui-dialog-body.saves ul.buttons li button#saves-import {
+	border: 0px;
+  	background-color: #632bfc;
+  	border-radius: 2rem;
+}
+
+#ui-dialog-body.saves ul.buttons li button#saves-clear {
+	border: 0px;
+  	background-color: #0fb4f5;
+  	border-radius: 2rem;
+}
+
+#ui-dialog-body.saves ul.buttons li button#saves-disk-save {
+  	border: 0px;
+  	background-color: #c90000;
+  	border-radius: 2rem;
+}
+
+#ui-dialog-body.saves ul.buttons li button#saves-disk-load {
+	border: 0px;
+  	background-color: #632bfc;
+  	border-radius: 2rem;
+}
+
+.dialogueBorder {
+ 	border: 1px solid #444;
+	border-radius: 2rem;
+  	border-width: 3px;
+  	margin: 15px;
+  
+}
+
+.dialogue {
+	margin-left: 30px;
+  	margin-top: 0px;
+  	margin-right: 30px;
+  	margin-bottom: 0px;
+  	color: white;
+  	text-align: justify;
+  	position: relative; 
+  	font-size: 17px;
+  	padding-top: 0em;
+
+}
+
+.passage a, .passage a:hover, .passage a:active {
+  	color: #6fc2fc;
+  	text-shadow: 0px 0px 20px #259de8;
+	text-decoration: underline;
 }
 
 .hover {
@@ -422,3 +1266,292 @@ body    {
 .hover:hover .hoverblock {
     visibility: visible;
 }
+
+
+#passages button {
+  	border: 0px;
+	border-radius: 1rem;
+  	border-width: 1px;
+  	background-color: #259de8;
+  	position: center;  
+}
+
+#passages link {
+ 	margin: 20px; 
+  
+}
+
+
+
+
+#ui-bar {
+ 	 background-color: #000000;
+}
+
+
+#menu ul {
+  	padding: 0px;
+	border: 1px solid #444;
+	border-radius: 1rem;
+  	border-width: 2px;
+  	border-color: #13919e;
+}
+
+
+#menu li a {
+  	padding: .3em .8em;
+  	text-transform: capitalize;
+}
+
+#menu li a:hover {
+ 	border-radius: 2rem;
+  	background-color: #42e0f5;
+  	color: green;
+}
+
+#menu-story li a:before {
+  	font-family: sc-icons;
+  	content: ;
+  	color: ;
+}
+
+#menu-item-saves a:before {
+  	content: "\f019\00a0";
+  
+}
+
+button#history-backward {
+ 	border-radius: 0.2em; 
+}
+
+button#history-forward {
+ 	border-radius: 0.2em; 
+}
+
+button#ui-bar-toggle {
+ 	border-radius: 0.2em; 
+}
+
+#ui-bar-tray #history-backward::before {
+ 	content: "\f04a\00a0"; 
+  	color: ;
+}
+
+#ui-bar-tray #history-forward::before {
+ 	content: "\f04e\00a0";
+  	color: ;
+}
+
+
+
+
+     
+img {
+ 	border: 2px solid #444;
+	border-radius: 1rem;
+  	border-width: 2px; 
+  	margin: 8px;
+  	border-color: #FFFFFF;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.flex-box {
+  flex: 1;
+  background-color: #303030;
+  padding: 1em;
+  border-radius: 2rem;
+  border-color: #303030;
+}
+
+.hide {
+ 	display: none; 
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+||||||||||||
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.shadow {
+	text-shadow: 0.08em 0.08em 0.08em #FFF;
+}
+.emboss {
+	text-shadow: 0.08em 0.08em 0em #FFF;
+	color: black;
+}
+.blur {
+	color: transparent;
+	text-shadow: 0em 0em 0.08em #FFF;
+}
+.blurrier {
+	color: transparent;
+	text-shadow: 0em 0em 0.2em #FFF;
+}
+.blurrier::selection {
+	background-color: transparent;
+	color: transparent;
+}
+.blurrier::-moz-selection {
+	background-color: transparent;
+	color: transparent;
+}
+.smear {
+	color: transparent;
+	text-shadow:
+		0em    0em 0.02em rgba(255,255,255,0.75),
+		-0.2em 0em 0.5em  rgba(255,255,255,0.5),
+		0.2em  0em 0.5em  rgba(255,255,255,0.5);
+}
+.mirror {
+	display: inline-block;
+	transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+}
+.upside-down {
+	display: inline-block;
+	transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+}
+
+@-webkit-keyframes fade-in-out {
+	0%,
+	to {opacity: 0}
+	50% {opacity: 1}
+}
+@keyframes fade-in-out {
+	0%,
+	to {opacity: 0}
+	50% {opacity: 1}
+}
+.fade-in-out {
+	text-decoration: none;
+	animation: fade-in-out 2s ease-in-out infinite alternate;
+	-webkit-animation: fade-in-out 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes rumble {
+	50% {
+		-webkit-transform: translateY(-.2em);
+		transform: translateY(-.2em)
+	}
+}
+@keyframes rumble {
+	50% {
+		-webkit-transform: translateY(-.2em);
+		transform: translateY(-.2em)
+	}
+}
+.rumble {
+	-webkit-animation: rumble linear 0.1s 0s infinite;
+	animation: rumble linear 0.1s 0s infinite;
+	display:inline-block;
+}
+
+@-webkit-keyframes shudder {
+	50% {
+		-webkit-transform: translateX(0.2em);
+		transform: translateX(0.2em)
+	}
+}
+@keyframes shudder {
+	50% {
+		-webkit-transform: translateX(0.2em);
+		transform: translateX(0.2em)
+	}
+}
+.shudder {
+	-webkit-animation: shudder linear 0.1s 0s infinite;
+	animation: shudder linear 0.1s 0s infinite;
+	display: inline-block;
+}
+
+
+/* SugarCube's built-in Font Awesome icons - Start */
+.sc-fa {
+	font-family: sc-icons;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+}
+.sc-icon {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.sc-icon::before {
+	font-family: sc-icons;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+}
+.sc-bolt::before {
+	content: "\f0e7";
+}
+.sc-check::before {
+	content: "\f00c";
+}
+.sc-cog::before {
+	content: "\f013";
+}
+.sc-heart::before {
+	content: "\f004";
+}
+.sc-show::before {
+	content: "\f06e";
+}
+.sc-sun::before {
+	content: "\f185";
+}
+.sc-moon::before {
+	content: "\f186";
+}
+.sc-star-solid::before {
+	content: "\f005";
+}
+/* SugarCube's built-in Font Awesome icons - End */
