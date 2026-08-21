@@ -1,0 +1,245 @@
+:: Widgets [widget nobr] {"position":"775,25","size":"100,100"}
+**************************
+		TIME WIDGET
+**************************
+
+<<=$CurDate.toLocaleString("en-US", { weekday: "long", month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" } )>>
+
+
+<<set $days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]>>
+<<set $gameDay = 0>>
+<<set $dayPart = ["morning", "afternoon", "evening", "night"]>>
+
+<<set $time = ["01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", 00:00"]>>
+<<set $gameTime = 1>>
+<<set $playerAlarm = 1>>
+
+<<if $time == "00:00">>
+	<<set $gameDay += 1>>
+<</if>>
+
+<<if $day is "Saturday" && $time is "00:00">>
+	<<set $gameDay = 0>>
+<</if>>
+
+
+
+
+
+
+
+/*
+	Date & Time Widget Setup
+*/
+<<set
+	window.GameDays to [
+		"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+	];
+	window.GameMonths to [
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+		"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+	];
+
+	/*
+		Below we have to use the multi-parameter version of the Date
+		constructor, rather than the date string version, because the
+		date string version treats a missing timezone offset as UTC.
+		While there are ways to determine players' timezone offsets,
+		so they could be added to a date string, it's more convenient
+		simply to use the multi-parameter constructor.
+
+		The point of this is so that you can simply initialize the game
+		world clock to whatever date and time you wish without having to
+		worry about the players' timezone offsets, while still ensuring
+		that they all see the same game world dates and times.
+	*/
+	/* params: year , month(0-based) , day , hour(24H) , minute [, second ] */
+	$gameDate to new Date(2015, 2, 17, 3, 24); /* e.g. Mar 17, 2015 03:24 */
+>>
+
+
+/*
+	Date & Time Advancement Widget Definitions
+*/
+/* Adds the specified number of minutes. */
+<<widget "addmins">>\
+<<run $gameDate.setMinutes($gameDate.getMinutes() + $args[0])>>\
+<</widget>>
+
+/* Adds the specified number of hours. */
+<<widget "addhours">>\
+<<run $gameDate.setHours($gameDate.getHours() + $args[0])>>\
+<</widget>>
+
+/* Adds the specified number of days. */
+<<widget "adddays">>\
+<<run $gameDate.setHours($gameDate.getHours() + $args[0] * 24)>>\
+<</widget>>
+
+
+/*
+	Date & Time Printing Widget Definitions
+*/
+/* Prints the current date ("{weekday} {month} {day}, {year}"). */
+<<widget "date">>\
+<<print String.format("{0} {1} {2}, {3}",
+	GameDays[$gameDate.getDay()],
+	GameMonths[$gameDate.getMonth()],
+	$gameDate.getDate(),
+	$gameDate.getFullYear()
+)>>\
+<</widget>>
+
+/* Prints the current time (12H). */
+<<widget "time12hr">>\
+<<if $gameDate.getHours() eq 0>>\
+12\
+<<elseif $gameDate.getHours() gt 12>>\
+<<print $gameDate.getHours() - 12>>\
+<<else>>\
+<<print $gameDate.getHours()>>\
+<</if>>:\
+<<if $gameDate.getMinutes() lt 10>>0<</if>><<print $gameDate.getMinutes()>> \
+<<if $gameDate.getHours() gte 12>>PM<<else>>AM<</if>>\
+<</widget>>
+
+/* Prints the current time (24H). */
+<<widget "time24hr">>\
+<<if $gameDate.getHours() lt 10>>0<</if>><<print $gameDate.getHours()>>:\
+<<if $gameDate.getMinutes() lt 10>>0<</if>><<print $gameDate.getMinutes()>>\
+<</widget>>
+
+/* Prints the current date and time (12H). */
+<<widget "datetime">><<date>> <<time12hr>> (<<time24hr>>)<</widget>>
+
+
+
+
+/*************************** 
+    ARMOR COLORS WIDGETS 
+***************************/
+<<widget "ArmorColorCycle">>
+    <<cycle "$armorColor" autoselect>>
+        <<option "cyan">>
+        <<option "alabaster">>
+        <<option "crimson">>
+        <<option "lime">>
+        <<option "orange">>
+        <<option "royal purple">>
+        <<option "ochre">>
+        <<option "hot pink">>
+        <<option "teal">>
+        <<option "olive">>
+        <<option "milk brown">>
+        <<option "midnight blue">>
+        <<option "scarlet">>
+        <<option "violet">>
+        <<option "black">>
+        <<option "tan">>
+        <<option "baby pink">>
+        <<option "salmon">>
+        <<option "emerald">>
+        <<option "cream yellow">>
+        <<option "periwinkle">>
+        <<option "ivory">>
+        <<option "steel">>
+        <<option "sky blue">>
+        <<option "sea green">>
+        <<option "navy">>
+        <<option "gold">>
+        <<option "silver">>
+        <<option "rose gold">>
+
+    <</cycle>>
+<</widget>>
+
+
+/*************************** 
+    FRAME WIDGET
+***************************/
+<<widget "Frame">>
+    <<set 
+        $height = ["giant", "large", "average", "small", "mini"],
+    >>
+    <<set
+    	$composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]
+    >>
+     <<set
+     	$altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]
+    >>
+<</widget>>
+
+
+
+/********************************
+    CHANGE POPUP WIDGETS 
+********************************/
+
+<<widget "PopupDesignationChange">>
+    <<run Dialog.create("Change Your Designation").wikiPassage("Popup-Designation").open();>>
+<</widget>>
+
+
+<<widget "PopupGenderChange">>
+    <<run Dialog.create("Change Your Gender").wikiPassage("Popup-Gender").open();>>
+<</widget>>
+<<widget "IfGenderIsCustom">>
+
+    <<if $mc.gender "woman">>
+        <<set _gender = "woman">>
+    <<elseif $mc.gender "man">>
+        <<set _gender = "man">>
+    <<else $mc.gender "nonbinary">>
+        <<set _gender = "nonbinary">>
+    <</if>>
+
+<</widget>>
+
+
+
+
+<<widget "PopupOpticsChange">>
+    <<run Dialog.create("Change Your Optics").wikiPassage("Popup-Optic").open();>>
+<</widget>>
+
+
+<<widget "PopupArmorColorChange">>
+    <<run Dialog.create("Change Your Armor Color").wikiPassage("Popup-Frame").open();>>
+<</widget>>
+<<widget "PopupArmorChecker">>
+    <<set _armorColor to $armorColor>>
+<</widget>>
+
+
+<<widget "PopupFrameChange">>
+    <<run Dialog.create("Change Your Frame").wikiPassage("Popup-Frame").open();>>
+<</widget>>
+
+<<widget "PopupFrame">>
+    <<set 
+        $height = ["giant", "large", "average", "small",  "mini"],
+    >>
+<</widget>>
+
+
+<<widget "PopupCompositionChange">>
+    <<run Dialog.create("Change Your Composition").wikiPassage("Popup-Composition").open();>>
+<</widget>>
+
+<<widget "PopupComposition">>
+    <<set 
+        $composition =  ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<</widget>>
+
+
+
+
+<<widget "PopupCharacterSheet">><</widget>>
+
+
+********icons********
+
+<<widget "scicon">>
+	<span @class="'sc-icon sc-' + $args.raw" alt="' + $args.raw + '">
+	</span>
+<</widget>>

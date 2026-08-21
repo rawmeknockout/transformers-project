@@ -1,0 +1,281 @@
+:: StoryInit [startup] {"position":"25,25","size":"100,100"}
+
+***************************
+	APPROVAL SYSTEM
+***************************
+
+<<set $relationshipDisable is true>>
+
+*/* Create Prowl */*
+
+<<set $prowl = ["Prowl"]>>
+<<set $metProwl is false>>
+
+*/* Create Prowl Approval System */*
+
+<<set $prowl.approval = 0>>
+
+
+*/* Create Optimus */*
+
+<<set $optimus = ["Optimus"]>>
+<<set $metOptimus is false>>
+
+*/* Create Optimus Approval System */*
+
+<<set $optimus.approval = 0>>
+
+
+*/* Create Jazz */*
+
+<<set $jazz = ["Jazz"]>>
+<<set $metJazz is false>>
+
+*/* Create Jazz Approval System */*
+
+<<set $jazz.approval = 0>>
+
+
+*/* Create Ratchet */*
+
+<<set $ratchet = ["Ratchet"]>>
+<<set $metRatchet is false>>
+
+*/* Create Ratchet Approval System */*
+
+<<set $ratchet.approval = 0>>
+
+
+*/* Create Ironhide */*
+
+<<set $ironhide = ["Ironhide"]>>
+<<set $metIronhide is false>>
+
+*/* Create Ironhide Approval System */*
+
+<<set $ironhide.approval = 0>>
+
+
+*/* Create Bumblebee */*
+
+<<set $bumblebee = ["Bumblebee"]>>
+<<set $metBumblebee is false>>
+
+*/* Create Bumblebee Approval System */*
+
+<<set $bumblebee.approval = 0>>
+
+
+
+*/* Prowl Approval System */*
+
+0-14: Prowl can't tell you apart from the cannon fodder. 
+15-24: Prowl sees you as a regular soldier.
+25-34: Prowl thinks you are a fine, reasonable soldier.
+35-49: Prowl thinks you are better than most.
+50-64: Prowl thinks you are of a similar mind.
+65-74: Prowl sees you as a confidante.
+75-84: Prowl wants to be around you.
+85-94: Prowl needs to be near you.
+95-100: Prowl trusts you with the Autobot cause.
+
+<<if $prowl.approval >=95>>
+ 						Prowl trusts you with the Autobot cause.
+ 				<<elseif $prowl.approval >=85 && $prowl.approval <=94>>
+						Prowl needs to be near you.
+ 				<<elseif $prowl.approval >=75 && $prowl.approval <=84>>
+						Prowl wants to be around you.
+ 				<<elseif $prowl.approval >=65 && $prowl.approval <=74>>
+		 				Prowl sees you as a confidante.
+ 				<<elseif $prowl.approval >=50 && $prowl.approval <=64>>
+						Prowl thinks you are of a similar mind.
+ 				<<elseif $prowl.approval >=35 && $prowl.approval <=49>>
+						Prowl thinks you are better than most.
+ 				<<elseif $prowl.approval >=25 && $prowl.approval <=34>>
+						Prowl thinks you are a fine, reasonable soldier.
+ 				<<elseif $prowl.approval >=15 && $prowl.approval <=24>>
+						Prowl sees you as part of the rabble.
+ 				<<elseif $prowl.approval >=0 && $prowl.approval <=14>>
+						Prowl can't tell you apart from the cannon fodder.
+ 				<</if>>
+
+Clamps Prowl's approval during an interaction:
+
+<<set $prowl.approval to Math.clamp($prowl.approval + 5, 0, 100)>>
+
+<<set $prowl.approval to Math.clamp($prowl.approval - 5, 0, 100)>>
+
+
+
+*/* Optimus Approval System */*
+
+0-14: Optimus considers you his responsibility. 
+15-24: Optimus sees the best in you.
+25-34: Optimus is glad you are on his side.
+35-49: Optimus appreciates your friendship.
+50-64: Optimus seeks your input.
+65-74: Optimus wants to keep you close.
+75-84: Optimus longs to be near you.
+85-94: Optimus bears his spark to you.
+95-100: Optimus considers you one spark in separate frames.
+
+ <<if $optimus.approval >=95>> Optimus considers you one spark in separate frames.
+ <<elseif $optimus.approval >=85 && $prowl.approval <=94>>
+		Optimus bears his spark to you.
+ <<elseif $optimus.approval >=75 && $prowl.approval <=84>>
+		Optimus longs to be near you.
+ <<elseif $optimus.approval >=65 && $prowl.approval <=74>>
+		Optimus wants to keep you close.
+ <<elseif $optimus.approval >=50 && $prowl.approval <=64>>
+		Optimus seeks your input.
+ <<elseif $optimus.approval >=35 && $prowl.approval <=49>>
+		Optimus appreciates your friendship.
+ <<elseif $optimus.approval >=25 && $prowl.approval <=34>>
+		Optimus is glad you are on his side.
+ <<elseif $optimus.approval >=15 && $prowl.approval <=24>>
+		Optimus sees the best in you.
+ <<elseif $optimus.approval >=0 && $prowl.approval <=14>>
+		Optimus considers you his responsibility.
+<</if>>
+
+<<set $optimus.approval to Math.clamp($optimus.approval + 5, 0, 100)>>
+
+<<set $optimus.approval to Math.clamp($optimus.approval - 5, 0, 100)>>
+
+
+
+*/* Jazz Approval System */*
+
+0-14: Jazz is keeping an optic on you. 
+15-24: Jazz tries to help you as much as he can.
+25-34: Jazz thinks you would make an exemplary Autobot.
+35-49: Jazz enjoys spending his free time with you.
+50-64: Jazz thinks of you often.
+65-74: Jazz keeps your secrets.
+75-84: Jazz keeps your picture in his subspace.
+85-94: Jazz can see a future with you.
+95-100: Jazz is as open as he can be with you.
+
+ <<if $jazz.approval >=95>> Jazz is as open as he can be with you.
+ <<elseif $jazz.approval >=85 && $jazz.approval <=94>>
+		Jazz can see a future with you.
+ <<elseif $jazz.approval >=75 && $jazz.approval <=84>>
+		Jazz keeps your picture in his subspace.
+ <<elseif $jazz.approval >=65 && $jazz.approval <=74>>
+		Jazz keeps your secrets.
+ <<elseif $jazz.approval >=50 && $jazz.approval <=64>>
+		Jazz thinks of you often.
+ <<elseif $jazz.approval >=35 && $jazz.approval <=49>>
+		Jazz enjoys spending his free time with you.
+ <<elseif $jazz.approval >=25 && $jazz.approval <=34>>
+		Jazz thinks you would make an exemplary Autobot.
+ <<elseif $jazz.approval >=15 && $jazz.approval <=24>>
+		Jazz tries to help you as much as he can.
+ <<elseif $jazz.approval >=0 && $jazz.approval <=14>>
+		Jazz is keeping an optic on you.
+<</if>>
+
+<<set $jazz.approval to Math.clamp($jazz.approval + 5, 0, 100)>>
+
+<<set $jazz.approval to Math.clamp($jazz.approval - 5, 0, 100)>>
+
+
+
+*/* Ratchet Approval System */*
+
+0-14: Ratchet hopes you stay out of trouble. 
+15-24: Ratchet fusses over you.
+25-34: Ratchet doesn't mind your company.
+35-49: Ratchet wants to teach you the basics of first aid.
+50-64: Ratchet lets you spend your free time in the medbay.
+65-74: Ratchet is soft on you.
+75-84: Ratchet sees the best of the Autobots in you.
+85-94: Ratchet is determined to keep you alive.
+95-100: Ratchet wants to forge 'tomorrow' with you.
+
+ <<if $ratchet.approval >=95>> 
+ 		Ratchet wants to forge 'tomorrow' with you.
+ <<elseif $ratchet.approval >=85 && $ratchet.approval <=94>>
+		Ratchet is determined to keep you alive.
+ <<elseif $ratchet.approval >=75 && $ratchet.approval <=84>>
+		Ratchet sees the best of the Autobots in you.
+ <<elseif $ratchet.approval >=65 && $ratchet.approval <=74>>
+		Ratchet is soft on you.
+ <<elseif $ratchet.approval >=50 && $ratchet.approval <=64>>
+		Ratchet lets you spend your free time in the medbay.
+ <<elseif $ratchet.approval >=35 && $ratchet.approval <=49>>
+		Ratchet wants to teach you the basics of first aid.
+ <<elseif $ratchet.approval >=25 && $ratchet.approval <=34>>
+		Ratchet doesn't mind your company.
+ <<elseif $ratchet.approval >=15 && $ratchet.approval <=24>>
+		Ratchet fusses over you.
+ <<elseif $ratchet.approval >=0 && $ratchet.approval <=14>>
+		Ratchet hopes you stay out of trouble.
+<</if>>
+
+<<set $ratchet.approval to Math.clamp($ratchet.approval + 5, 0, 100)>>
+
+<<set $ratchet.approval to Math.clamp($ratchet.approval - 5, 0, 100)>>
+
+
+
+
+
+
+**************************
+	CHARACTER STATS
+**************************
+
+<<set $sheetDisable is false>>
+<<set $statsDisable is false>>
+
+<<set $mcCorruption = 0>>
+<<set $mcVirginity = true>>
+ <<if $mcVirginity>>
+ 		<<set $mcVirginity to "You are factory sealed.">>
+ <<else>>
+ 		<<set $mcVirginity to "Your seal is broken.">>
+ <</if>>
+<<set $mcSubmission = 0>>
+<<set $mcStrength = 0>>
+<<set $mcIntelligence = 0>>
+<<set $chastitySeal = true>>
+<<set $mcDominant = 0>>
+<<set $mcSubmissive = 0>>
+<<set $mcHealth = 50>>
+<<set $mcAim = 0>>
+
+
+<<set 
+    $mc to {},
+    $proset to {},
+    $face to {},
+    $skin to {},
+    $body to {}>>
+<<set $pages to {}>>
+
+
+
+<<set $armorColor = ["cyan", "alabaster", "crimson", "lime", "orange", "royal purple", "ochre", "hot pink", "teal", "olive", "milk brown", "midnight blue", "scarlet", "violet",  "black", "tan", "baby pink", "salmon", "emerald", "cream yellow", "periwinkle", "ivory", "steel", "sky blue", "sea green", "navy", "gold", "silver", "rose gold"]>>
+<<set $armorColor = _armorColor>>
+
+<<set $opticColor to ["blue", "red", "gold", "purple"]>>
+<<set $opticColor = _optic>>
+
+<<set $height = ["giant", "large", "average", "small", "mini"]>>
+<<set $height = _height>>
+
+<<set $altForm = ["sportscar", "truck", "courier plane", "fighter jet", "tank", "motorcycle"]>>
+<<set $altForm = _altForm>>
+
+<<set $composition = ["built", "hefty", "plump", "curvy", "slender", "lithe", "tiny"]>>
+<<set $composition = _composition>>
+
+<<set $mc.gender = ["femme", "mech", "bot"]>>
+
+
+
+*****************************
+NON-CHARACTER PROCESSES
+*****************************
+
